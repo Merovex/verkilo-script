@@ -1,0 +1,696 @@
+\PassOptionsToPackage{unicode=true$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+$if(colorlinks)$
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+$endif$$if(dir)$$if(latex-dir-rtl)$
+\PassOptionsToPackage{RTLdocument}{bidi}
+$endif$$endif$%
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+\usepackage{titlesec}
+\usepackage{graphicx}
+% \usepackage{lipsum}
+\usepackage[all]{nowidow}
+\usepackage[none]{hyphenat}
+
+$if(beamer)$
+$if(background-image)$
+\usebackgroundtemplate{%
+\includegraphics[width=\paperwidth]{$background-image$}%
+}
+$endif$
+\usepackage{pgfpages}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
+$for(beameroption)$
+\setbeameroption{$beameroption$}
+$endfor$
+
+\raggedbottom
+$if(section-titles)$
+\setbeamertemplate{part page}{
+\centering
+\begin{beamercolorbox}[sep=16pt,center]{part title}
+  \usebeamerfont{part title}\insertpart\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+\centering
+\begin{beamercolorbox}[sep=12pt,center]{part title}
+  \usebeamerfont{section title}\insertsection\par
+\end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+\centering
+\begin{beamercolorbox}[sep=8pt,center]{part title}
+  \usebeamerfont{subsection title}\insertsubsection\par
+\end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+$endif$
+$endif$
+$if(beamerarticle)$
+\usepackage{beamerarticle} % needs to be loaded first
+$endif$
+% $if(fontfamily)$
+% \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+% $else$
+% % \usepackage{lmodern}
+% \usepackage{fontspec}
+% \usepackage{xunicode}
+% \usepackage{xltxtra}
+% \defaultfontfeatures{Mapping=tex-text}
+%
+% % \usepackage{cabin}
+% % \usepackage{librecaslon}
+% % \setmainfont{Libre Caslon Text}
+% % \setsansfont{Droid Sans}
+% % \setmonofont{Droid Sans Mono}
+% % % \setsansfont{cabin}
+% $endif$
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+$if(seriffont)$
+  \setmainfont{$seriffont$}
+$else$
+  \setmainfont{Libre Caslon Text}
+$endif$
+$if(seriffont)$
+  \setsansfont{$sansfont$}
+$else$
+  \setsansfont{Lato}
+$endif$
+$if(seriffont)$
+  \setmonofont{$monofont$}
+$else$
+  \setmonofont{Courier}
+$endif$
+
+\usepackage{setspace}
+$if(linestretch)$
+\setstretch{$linestretch$}
+$else$
+\setstretch{1.1}
+$endif$
+
+% Dates
+%-------
+\usepackage{datetime}
+\newdateformat{yearonly}{\THEYEAR}
+\newdateformat{usmonthyear}{\monthname[\THEMONTH], \THEYEAR}
+\newcommand{\monthyear}{%
+  \ifcase\month\or January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or
+  December\fi\space\number\year
+}
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+$if(mathspec)$
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{unicode-math}
+  \fi
+$else$
+  \usepackage{unicode-math}
+$endif$
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+$if(mathfont)$
+$if(mathspec)$
+  \ifxetex
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \else
+    \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \fi
+$else$
+  \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$endif$
+$if(CJKmainfont)$
+  \ifxetex
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+  \fi
+$endif$
+$if(luatexjapresetoptions)$
+  \ifluatex
+    \usepackage[$for(luatexjapresetoptions)$$luatexjapresetoptions$$sep$,$endfor$]{luatexja-preset}
+  \fi
+$endif$
+$if(CJKmainfont)$
+  \ifluatex
+    \usepackage[$for(luatexjafontspecoptions)$$luatexjafontspecoptions$$sep$,$endfor$]{luatexja-fontspec}
+    \setmainjfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+  \fi
+$endif$
+\fi
+$if(beamer)$
+$if(theme)$
+\usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+$if(fonttheme)$
+\usefonttheme{$fonttheme$}
+$endif$
+$if(mainfont)$
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+$endif$
+$if(innertheme)$
+\useinnertheme{$innertheme$}
+$endif$
+$if(outertheme)$
+\useoutertheme{$outertheme$}
+$endif$
+$endif$
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(indent)$
+$else$
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(colorlinks)$
+\usepackage{xcolor}
+$endif$
+\usepackage{hyperref}
+\hypersetup{
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+$if(colorlinks)$
+            colorlinks=true,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+            filecolor=$if(filecolor)$$filecolor$$else$Maroon$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+            pdfborder={0 0 0},
+$endif$
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+
+\newcommand{\AFourSize}{paperwidth=210mm,paperheight=297mm,margin=2cm,twoside}
+\newcommand{\Letter}{paperwidth=8.5in,paperheight=11in,margin=1.0in,twoside}
+\newcommand{\USTrade}{paperwidth=6in,paperheight=9in,left=0.875in,right=0.625in,top=0.525in,bottom=0.525in,twoside}
+\newcommand{\Digest}{paperwidth=5.5in,paperheight=8.5in,left=0.875in,right=0.625in,top=0.825in,bottom=0.825in,twoside}
+\newcommand{\USSmallTrade}{paperwidth=5.25in,paperheight=8in,left=0.875in,right=0.625in,top=0.825in,bottom=0.825in,twoside}
+\newcommand{\Novella}{paperwidth=5in,paperheight=8in,left=0.775in,right=0.525in,top=0.825in,bottom=0.725in,twoside}
+\newcommand{\MassMarket}{paperwidth=4.25in,paperheight=7in,left=0.775in,right=0.525in,top=0.825in,bottom=0.825in,twoside}
+\newcommand{\UKAFormat}{paperwidth=111mm,paperheight=178mm,left=0.775in,right=0.525in,top=0.825in,bottom=0.825in,twoside}
+\newcommand{\UKBFormat}{paperwidth=129mm,paperheight=198mm,left=0.775in,right=0.525in,top=0.825in,bottom=0.825in,twoside}
+$if(trimsize)$
+\usepackage[\$trimsize$]{geometry}
+$else$
+\usepackage[\USTrade]{geometry}
+$endif$
+$if(beamer)$
+\newif\ifbibliography
+$endif$
+$if(listings)$
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$if(beamer)$
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$else$
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+$endif$
+$endif$
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(beamer)$
+$else$
+$if(subparagraph)$
+$else$
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+$endif$
+$endif$
+$if(pagestyle)$
+\pagestyle{$pagestyle$}
+$endif$
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% $for(header-includes)$
+% $header-includes$
+% $endfor$
+% HEADER DESIGN
+\usepackage{fancyhdr} % headers
+\pagestyle{fancy} % style for headers
+\usepackage{pifont} % for the copyright symbol
+\headheight 0.25in % height of header
+\headsep 0.25in % dist between top of text and bottom of header
+\parskip 0in
+\parindent 0.25in % = 6.35mm
+\newcommand{\str}{\rule{0pt}{16pt}} % strut used in toc
+%%% header stuff
+\newcommand{\currpage}{\footnotesize\thepage} % use in headers
+\fancyhead{} % clear header fields, required
+\fancyfoot{} % clear footer fields, required
+% \fancyfoot[C]{\currpage}
+\fancyhead[LE,RO]{\currpage}
+
+\fancyhead[CO]{ \footnotesize\MakeUppercase{$title$}  } % Odd Page, Right side
+\fancyhead[CE]{ \footnotesize\MakeUppercase{$author$} } % Even Page, Right side
+\renewcommand\headrulewidth{0pt} % for no rule line under header
+
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\huge\bfseries\color{blue}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+% \titleformat{\chapter}[display]
+%   {\bfseries\Large}
+%   {\filright\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+%   {1ex}
+%   {\titlerule\vspace{1ex}\filleft}
+%   [\vspace{1ex}\titlerule]
+
+$if(lang)$
+  \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+    \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+  $if(babel-newcommands)$
+    $babel-newcommands$
+  $endif$
+  \else
+    % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
+    \usepackage{polyglossia}
+    \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+  $for(polyglossia-otherlangs)$
+    \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+  $endfor$
+  \fi
+$endif$
+$if(dir)$
+  \ifxetex
+    % load bidi as late as possible as it modifies e.g. graphicx
+    \usepackage{bidi}
+  \fi
+  \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+    \TeXXeTstate=1
+    \newcommand{\RL}[1]{\beginR #1\endR}
+    \newcommand{\LR}[1]{\beginL #1\endL}
+    \newenvironment{RTL}{\beginR}{\endR}
+    \newenvironment{LTR}{\beginL}{\endL}
+  \fi
+$endif$
+$if(natbib)$
+  \usepackage[$natbiboptions$]{natbib}
+  \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+  \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+  $for(bibliography)$
+    \addbibresource{$bibliography$}
+  $endfor$
+$endif$
+
+% ===============================================
+% Bringing PlainFancyBreak from Memoir class.
+\makeatletter
+\newcommand{\plainfancybreak}{\@ifstar{\@spfbreak}{\@pfbreak}}
+\newcommand{\@pfbreak}[3]{\par
+  \@tempdimc\pagegoal \advance\@tempdimc-\pagetotal
+  \ifdim #1>\@tempdimc \@fbreak{#3}\else \@pbreak{#2}\fi}
+\newcommand{\@spfbreak}[3]{\par
+  \@tempdimc\pagegoal \advance\@tempdimc-\pagetotal
+  \ifdim #1>\@tempdimc \@sfbreak{#3}\else \@spbreak{#2}\fi}
+
+\newcommand*{\pen@ltyabovepfbreak}{2}
+\newcommand*{\pen@ltybelowpfbreak}{-4}
+
+\newlength{\pfbreakskip}
+  \setlength{\pfbreakskip}{2\baselineskip}
+\newcommand{\pfbreakdisplay}{*\quad*\quad*}
+
+\def\pfbre@kdispl@y{\vbox to 1\pfbreakskip{\vss
+  \hb@xt@ \columnwidth{\hss \pfbreakdisplay \hss}%
+  \vss}}
+
+\edef\nopfbreakOutput{\the\output}
+\def\pfbreakOutput{%
+  \ifnum\outputpenalty=\pen@ltyabovepfbreak
+    \nopfbreakOutput
+    \pfbre@kdispl@y
+    \nobreak
+    \vskip-\pfbreakskip
+  \else\ifnum\outputpenalty=\pen@ltybelowpfbreak
+    \unvbox 255\relax
+    \nobreak
+    \vskip-\pfbreakskip
+    \pfbre@kdispl@y
+    \break
+  \else
+    \nopfbreakOutput
+  \fi
+  \fi}
+\output={\pfbreakOutput}
+
+\newcommand{\pfbreak}{\@ifstar{\@spfbreakgap}{\@pfbreakgap}}
+\newcommand{\@pfbreakgap}{%
+  \par {%
+  \skip@\lastskip
+  \nobreak
+  \vskip -\ifdim\prevdepth>\maxdepth \maxdepth
+          \else\ifdim\prevdepth>-1000pt\prevdepth
+            \else\ifinner 0pt
+              \else \pagedepth
+          \fi \fi \fi
+  \vskip -\skip@
+  \ifdim\skip@<\pfbreakskip
+    \advance\skip@ -1\skip@ \advance\skip@ 1\pfbreakskip
+  \fi
+  \penalty\pen@ltyabovepfbreak
+  \vskip\skip@
+  \penalty\pen@ltybelowpfbreak
+  }
+  \@afterindentfalse
+  \@afterheading
+}
+\newcommand{\@spfbreakgap}{%
+  \par {%
+  \skip@\lastskip
+  \nobreak
+  \vskip -\ifdim\prevdepth>\maxdepth \maxdepth
+          \else\ifdim\prevdepth>-1000pt\prevdepth
+            \else\ifinner 0pt
+              \else \pagedepth
+          \fi \fi \fi
+  \vskip -\skip@
+  \ifdim\skip@<\pfbreakskip
+    \advance\skip@ -1\skip@ \advance\skip@ 1\pfbreakskip
+  \fi
+  \penalty\pen@ltyabovepfbreak
+  \vskip\skip@
+  \penalty\pen@ltybelowpfbreak
+  }
+  \@afterindenttrue
+  \@afterheading
+}
+\makeatother
+% /PlainFancyBreak
+
+\begin{document}
+  \sloppy % ignore problems with line overflow / underflow
+  \setcounter{page}{1}
+% ===============================================
+% Old Beamer frontmatter
+% $if(title)$
+%   $if(beamer)$
+%     \frame{\titlepage}
+%     $else$
+%     % \maketitle
+%   $endif$
+%   $if(abstract)$
+%     \begin{abstract}
+%   $abstract$
+%     \end{abstract}
+%   $endif$
+% $endif$
+
+% ===============================================
+% Frontmatter
+  \pagenumbering{roman}
+  \pagestyle{empty}
+  % ------------------------------------------------
+  % r.1 - Half-Title - Recto
+  \begin{center}
+    \vspace*{\fill}
+
+    \LARGE\textbf{\textsf{$title$}}
+
+    \vspace*{\fill}
+    \vspace*{\fill}
+  \end{center}
+  \clearpage
+
+  % ------------------------------------------------
+  % r.2 - Series Title Page - Verso
+  \newpage
+  \emph{ }\newline
+  $if(other-titles)$
+    \begin{center}
+      \textbf{Also by $author$}
+
+      $for(other-titles)$
+      $other-titles$\newline
+      $endfor$
+    \end{center}
+  $endif$
+  \clearpage
+
+  % ------------------------------------------------
+  % r.3 Titlepage - Recto
+  \begin{center}
+    \vspace*{\fill}
+
+    \Huge\textbf{\textsf{$title$}}
+    $if(subtitle)$
+
+    \vspace*{0.125in}\Large\textbf{\textsf{$subtitle$}}\newline$endif$
+
+    \vspace*{0.25in}
+    \line(1,0){150}
+    \vspace*{0.25in}
+
+    \Large\textsf{$author$}
+
+    \vspace*{\fill}
+    \vspace*{\fill}
+    $if(imprint)$
+    \includegraphics[width=1in]{$imprint$}\\[0cm]
+    \vspace*{0.25in}
+    $endif$
+  \end{center}
+  \clearpage
+
+  % ------------------------------------------------
+  % r.4 Copyright Page
+  \vspace*{\fill}
+
+  \par\noindent\emph{$title$}\newline
+  \par\noindent\emph{$rights$}\newline
+
+  \footnotesize
+  $if(reservation)$\par\noindent $reservation$\newline$endif$
+
+  $for(isbn)$
+    \par\noindent ISBN $isbn$
+  $endfor$\newline
+
+  \footnotesize
+  $if(disclaimer)$\par\noindent $disclaimer$\newline$endif$
+
+  % Producer Acknowledgements
+  \par\noindent Interior Design: Merovex Press % Per license terms for use of template.
+  $for(credits)$
+    \par\noindent $credits$
+  $endfor$\newline
+
+  \par\noindent $for(author)$
+      \par\noindent $author$
+    $endfor$\newline
+
+  $if(website)$
+    \par\noindent Visit us at \url{$website$}\newline
+  $endif$
+
+  \par\noindent $country$
+  \newline
+
+  $if(printing)$
+    \par\noindent\textit{$printing$}
+    \newline
+  $endif$
+
+  $if(version)$
+  \par\noindent Version: $version$
+  $endif$
+  \vspace*{\fill}
+  \clearpage\normalsize
+
+  % -----------------------------------------------
+  % r.5 - Dedication
+  $if(thanks)$
+    $thanks$
+    \newpage
+  $endif$
+
+  % -----------------------------------------------
+  % Table of Contents
+  $if(toc)$
+    $if(toc-title)$
+      \renewcommand*\contentsname{$toc-title$}
+    $endif$
+    $if(beamer)$
+      \begin{frame}
+        $if(toc-title)$
+        \frametitle{$toc-title$}
+        $endif$
+        \tableofcontents[hideallsubsections]
+      \end{frame}
+    $else$
+    {
+      $if(colorlinks)$
+        \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+      $endif$
+      \makeatletter
+      \renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
+      \makeatother
+      \setcounter{tocdepth}{$toc-depth$}
+      \tableofcontents
+    }
+    $endif$
+  $endif$
+
+  % -----------------------------------------------
+  % List of Tables
+  $if(lot)$
+    \listoftables
+  $endif$
+
+  % -----------------------------------------------
+  % List of Figures
+  $if(lof)$
+    \listoffigures
+  $endif$
+
+\newpage % End Frontmatter
+
+% ===============================================
+% Mainmatter
+\pagenumbering{arabic}\pagestyle{fancy}
+$body$
+
+% ===============================================
+% Backmatter
+$if(natbib)$
+  $if(bibliography)$
+    $if(biblio-title)$
+      $if(book-class)$
+        \renewcommand\bibname{$biblio-title$}
+      $else$
+        \renewcommand\refname{$biblio-title$}
+      $endif$
+    $endif$
+    $if(beamer)$
+      \begin{frame}[allowframebreaks]{$biblio-title$}
+      \bibliographytrue
+    $endif$
+    \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+    $if(beamer)$
+      \end{frame}
+    $endif$
+  $endif$
+$endif$
+
+$if(biblatex)$
+  $if(beamer)$
+    \begin{frame}[allowframebreaks]{$biblio-title$}
+      \bibliographytrue
+      \printbibliography[heading=none]
+    \end{frame}
+  $else$
+    \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+  $endif$
+$endif$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

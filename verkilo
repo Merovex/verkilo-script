@@ -1,0 +1,90 @@
+#!/Users/merovex/.rvm/rubies/ruby-2.4.1/bin/ruby
+
+require 'fileutils'
+
+action = ARGV.shift
+target = ARGV.shift || 'text'
+
+css_file = "style.css"
+version = `git describe --abbrev=0 --tags` || 'none'
+metadata = "metadata.yml"
+images_dir = "#{target}/images/"
+templates_dir = "#{Dir.home}/.verkilorc/templates/"
+
+@build_flags = {}
+@build_flags[:epub] = <<-HEREDOC \
+--epub-cover-image=#{images_dir}cover.png \
+--css=#{templates_dir}#{css_file} \
+--template=#{templates_dir}epub.html \
+--metadata-file=#{metadata} \
+--metadata=version:#{version} \
+--lua-filter #{templates_dir}latex.lua \
+--toc --toc-depth=2 \
+--webtex
+HEREDOC
+
+@build_flags[:html] = <<-HEREDOC \
+  --css=#{templates_dir}#{css_file} \
+  --standalone --to=html5 \
+  --metadata-file=#{metadata} \
+  --lua-filter #{templates_dir}latex.lua \
+  --toc --toc-depth=2 \
+  --self-contained \
+  --webtex
+HEREDOC
+
+@build_flags[:pdf] = <<-HEREDOC \
+  -V documentclass=book \
+  --template=#{templates_dir}pdf.tex \
+  --metadata-file=#{metadata} \
+  --metadata=version:#{version} \
+  --lua-filter #{templates_dir}latex.lua \
+  --pdf-engine=xelatex \
+  --toc --toc-depth=2 \
+  --webtex
+HEREDOC
+
+@build_flags[:docx] = <<-HEREDOC \
+  --reference-doc=#{templates_dir}reference.docx \
+  --metadata-file=#{metadata} \
+  --lua-filter #{templates_dir}latex.lua
+HEREDOC
+
+def makeProductionFile(action, target)
+  puts "Making #{action}"
+
+  basename = "#{File.basename(Dir.pwd)}-#{target}"
+  build_dir = (action == "html") ? "build/html/" : "build/"
+
+  FileUtils.mkdir_p(build_dir)
+
+  output_filename = "#{build_dir}#{basename}.#{action}"
+  chapters        = Dir["#{target}/**/*.md"].sort.join(" ")
+  args            = "#{@build_flags[action.to_sym]} -o #{output_filename} #{chapters}"
+
+  # puts "pandoc #{args.gsub(/\s+/, " ")}"
+  puts `pandoc #{args.gsub(/\s+/, " ")}`
+
+end
+def getSticky()
+  if File.exist?('.wip')
+    o = File.open('wip').readlines.first
+    raise o.inspect
+  else
+
+  end
+end
+def makeSticky(action)
+  File.open('.wip', 'w') {|f| f.write(action) }
+end
+
+if %w(pdf docx epub html).include?(action)
+  makeProductionFile(action, target)
+  makeSticky(action)
+elsif (action == 'book')
+  makeProductionFile('epub', target)
+  makeProductionFile('pdf', target)
+  makeSticky(action)
+elsif (action == 'clean')
+  FileUtils.remove_dir(build_dir)
+end
