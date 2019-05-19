@@ -2,89 +2,77 @@
 
 require 'fileutils'
 
-action = ARGV.shift
-target = ARGV.shift || 'text'
-
-css_file = "style.css"
-version = `git describe --abbrev=0 --tags` || 'none'
-metadata = "metadata.yml"
-images_dir = "#{target}/images/"
-templates_dir = "#{Dir.home}/.verkilorc/templates/"
-
-@build_flags = {}
-@build_flags[:epub] = <<-HEREDOC \
---epub-cover-image=#{images_dir}cover.png \
---css=#{templates_dir}#{css_file} \
---template=#{templates_dir}epub.html \
---metadata-file=#{metadata} \
---metadata=version:#{version} \
---lua-filter #{templates_dir}latex.lua \
---toc --toc-depth=2 \
---webtex
-HEREDOC
-
-@build_flags[:html] = <<-HEREDOC \
-  --css=#{templates_dir}#{css_file} \
-  --standalone --to=html5 \
-  --metadata-file=#{metadata} \
-  --lua-filter #{templates_dir}latex.lua \
-  --toc --toc-depth=2 \
-  --self-contained \
-  --webtex
-HEREDOC
-
-@build_flags[:pdf] = <<-HEREDOC \
-  -V documentclass=book \
-  --template=#{templates_dir}pdf.tex \
-  --metadata-file=#{metadata} \
-  --metadata=version:#{version} \
-  --lua-filter #{templates_dir}latex.lua \
-  --pdf-engine=xelatex \
-  --toc --toc-depth=2 \
-  --webtex
-HEREDOC
-
-@build_flags[:docx] = <<-HEREDOC \
-  --reference-doc=#{templates_dir}reference.docx \
-  --metadata-file=#{metadata} \
-  --lua-filter #{templates_dir}latex.lua
-HEREDOC
-
 def makeProductionFile(action, target)
-  puts "Making #{action}"
-
-  basename = "#{File.basename(Dir.pwd)}-#{target}"
-  build_dir = (action == "html") ? "build/html/" : "build/"
+  target          = getSticky(target)
+  basename        = "#{File.basename(Dir.pwd)}-#{target}"
+  build_dir       = (action == "html") ? "build/html/" : "build/"
+  chapters        = Dir["./#{target}/**/*.md"].sort.join(" ")
+  output_filename = "#{build_dir}#{basename}.#{action}"
+  args            = @build_flags[:all] + @build_flags[action.to_sym] + "-o #{output_filename}"
+  cmd             = "pandoc #{args.gsub(/\s+/, " ")} #{chapters}"
 
   FileUtils.mkdir_p(build_dir)
-
-  output_filename = "#{build_dir}#{basename}.#{action}"
-  chapters        = Dir["#{target}/**/*.md"].sort.join(" ")
-  args            = "#{@build_flags[action.to_sym]} -o #{output_filename} #{chapters}"
-
-  # puts "pandoc #{args.gsub(/\s+/, " ")}"
-  puts `pandoc #{args.gsub(/\s+/, " ")}`
-
+  puts `#{cmd}`
 end
-def getSticky()
-  if File.exist?('.wip')
-    o = File.open('wip').readlines.first
-    raise o.inspect
-  else
 
-  end
+def getSticky(target)
+  wip_file = '.wip'
+  target   = File.open(wip_file).readlines.first if File.exist?(wip_file) and target.nil?
+  return target
 end
-def makeSticky(action)
-  File.open('.wip', 'w') {|f| f.write(action) }
+
+def makeSticky(target)
+  return if target.nil?
+  File.open('.wip', 'w') {|f| f.write(target) }
 end
+
+action          = ARGV.shift
+target          = getSticky(ARGV.shift)
+
+images_dir      = "./#{target}/images/"
+templates_dir   = "#{Dir.home}/.verkilorc/templates/"
+version         = `git describe --abbrev=0 --tags` || 'none'
+
+@build_flags    = { }
+
+@build_flags[:all] = <<-HEREDOC
+  --lua-filter #{templates_dir}latex.lua \
+  --metadata=version:#{@version} \
+  --metadata-file=metadata.yml
+HEREDOC
+
+@build_flags[:epub] = <<-HEREDOC
+  --css=#{templates_dir}style.css \
+  --epub-cover-image=#{images_dir}cover.png \
+  --template=#{templates_dir}epub.html \
+  --webtex
+HEREDOC
+
+@build_flags[:html] = <<-HEREDOC
+  --css=#{templates_dir}style.css \
+  --self-contained \
+  --standalone --to=html5 \
+  --webtex
+HEREDOC
+
+@build_flags[:pdf] = <<-HEREDOC
+  --pdf-engine=xelatex \
+  --template=#{templates_dir}pdf.tex \
+  -V documentclass=book \
+  --webtex
+HEREDOC
+
+@build_flags[:docx] = <<-HEREDOC
+  --reference-doc=#{templates_dir}reference.docx
+HEREDOC
 
 if %w(pdf docx epub html).include?(action)
   makeProductionFile(action, target)
-  makeSticky(action)
+  makeSticky(target)
 elsif (action == 'book')
   makeProductionFile('epub', target)
   makeProductionFile('pdf', target)
-  makeSticky(action)
+  makeSticky(target)
 elsif (action == 'clean')
   FileUtils.remove_dir(build_dir)
 end
