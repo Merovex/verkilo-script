@@ -22,7 +22,7 @@ Standard book sizes can vary depending on your genre. Let’s first define some 
 
 Here’s a real-world comparison of some trade paperback sizes:
 
-[](https://reedsy-blog-cdn.s3.amazonaws.com/wp-content/uploads/2017/11/trim-sizes-1.png)
+[](/images/trim-sizes-1.png)
 
 From left: 5” x 8” , 5.5” x 8.5” (digest) and 6” x 9” (trade)
 
