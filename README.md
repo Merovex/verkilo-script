@@ -76,23 +76,23 @@ Examples of both the metadata.yml and Frontmatter metadata are available in the 
 
 ### Trimsize
 
-The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits.
+The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits in the table. All measures are in metric in the LaTeX macros.
 
-|   Trimsize       |   Paper Size    |  I/O Margins  | T/B Margins |
+|   Trimsize       |   Paper Size    |  I/O Margins  | Bottom      |
 |        ---       |       ---       |      ---      |     ---     |
-| **AFourSize**    |   21cm x 30cm   |          2cm  |        2cm  |
-| **Letter**       | 8-1/2" x 11"    |            1" |         1"  |
+| **Letter**       | 8-1/2" x 11"    |            1" |          1" |
 | **LargeTrade**   |     8" x 10"    |   7/8" x 5/8" |        5/8" |
-| **USTextbook**   |     7" x 10"    |   7/8" x 5/8" |        5/8" |
-| **USTrade**      |     6" x 9"     |   7/8" x 5/8" |        5/8" |
+| **Textbook**     |     7" x 10"    |   7/8" x 5/8" |        5/8" |
+| **Trade**        |     6" x 9"     |   7/8" x 5/8" |        5/8" |
 | **Digest**       | 5-1/2" x 8-1/2" |   7/8" x 5/8" |        7/8" |
 | **SmallTrade**   | 5-1/4" x 8"     |   7/8" x 5/8" |        7/8" |
 | **Novella**      |     5" x 8"     |   3/4" x 5/8" | 7/8" x 5/8" |
-| **MassMarket**   | 4-1/4" x 7"     |   3/4" x 5/8" | 7/8" x 5/8" |
+| **AFourSize**    |   21cm x 30cm   |          2cm  |        2cm  |
 | **UKAFormat**    |   11cm x 18cm   |   20mm x 16mm |        22mm |
 | **UKBFormat**    |   13cm x 20cm   |   20mm x 16mm |        22mm |
 
-* I/O Margins - This is the inner & outer margin. The inner margin adds the gutter necessary for the binding.
+* Top and Inner margins are 20mm.
+* Outer and bottom margins are identical.
 * T/B Margins - This is the top & bottom margin. The top margin includes the header.
 
 If you want bleeding, then set the metadata `bleed` to `true`. This will increase the page size by  1/8" or 3mm to meet the Kindle Direct bleed.

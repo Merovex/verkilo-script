@@ -236,35 +236,43 @@ $if(verbatim-in-note)$
 $endif$
 
 $if(bleed)$
-\newcommand{\AFourSize}{ paperwidth=213mm, paperheight=300mm,margin=2cm,twoside}
-\newcommand{\Letter}{    paperwidth=8.75in,paperheight=11.125in,margin=1.0in,twoside}
-\newcommand{\LargeTrade}{paperwidth=8.25in,paperheight=10.125in,left=0.875in,right=0.825in,top=0.825in,bottom=0.825in,twoside}
-\newcommand{\USTextbook}{paperwidth=7.25in,paperheight=10.125in,left=0.875in,right=0.825in,top=0.825in,bottom=0.825in,twoside}
-\newcommand{\USTrade}{   paperwidth=6.25in,paperheight=9.125in, left=0.875in,right=0.625in,top=0.525in,bottom=0.625in,twoside}
-\newcommand{\Digest}{    paperwidth=5.75in,paperheight=8.625in, left=0.875in,right=0.625in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\SmallTrade}{paperwidth=5.50in,paperheight=8.125in, left=0.875in,right=0.625in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\Novella}{   paperwidth=5.25in,paperheight=8.125in, left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\MassMarket}{paperwidth=4.59in,paperheight=7.125in, left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\UKAFormat}{ paperwidth=114mm, paperheight=191mm,   left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\UKBFormat}{ paperwidth=131mm, paperheight=201mm,   left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
-$else$
 \newcommand{\AFourSize}{ paperwidth=210mm, paperheight=297mm,margin=2cm,twoside}
-\newcommand{\Letter}{    paperwidth=8.50in,paperheight=11in,margin=1.0in,twoside}
-\newcommand{\LargeTrade}{paperwidth=8.00in,paperheight=10in, left=0.875in,right=0.825in,top=0.825in,bottom=0.825in,twoside}
-\newcommand{\USTextbook}{paperwidth=7.00in,paperheight=10in, left=0.875in,right=0.825in,top=0.825in,bottom=0.825in,twoside}
-\newcommand{\USTrade}{   paperwidth=6.00in,paperheight=9in,  left=0.875in,right=0.625in,top=0.525in,bottom=0.625in,twoside}
-\newcommand{\Digest}{    paperwidth=5.50in,paperheight=8.5in,left=0.875in,right=0.625in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\SmallTrade}{paperwidth=5.25in,paperheight=8in,  left=0.875in,right=0.625in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\Novella}{   paperwidth=5.00in,paperheight=8in,  left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\MassMarket}{paperwidth=4.25in,paperheight=7in,  left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\UKAFormat}{ paperwidth=111mm, paperheight=178mm,left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
-\newcommand{\UKBFormat}{ paperwidth=129mm, paperheight=198mm,left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
+\newcommand{\Letter}{    paperwidth=8.625in,paperheight=11.25in,margin=1.0in,twoside}
+\newcommand{\LargeTrade}{paperwidth=8.125in,paperheight=10.25in,outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\Textbook}{  paperwidth=7.125in,paperheight=10.25in,outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\Trade}{     paperwidth=6.125in,paperheight=9.25in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\Digest}{    paperwidth=5.625in,paperheight=8.75in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\SmallTrade}{paperwidth=5.375in,paperheight=8.25in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\Novella}{   paperwidth=5.125in,paperheight=8.25in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\UKAFormat}{ paperwidth=114mm, paperheight=184mm,   outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\UKBFormat}{ paperwidth=132mm, paperheight=204mm,   outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+$else$
+\newcommand{\AFourSize}{ paperwidth=21.00cm,paperheight=29.70cm,margin=20mm,twoside}
+\newcommand{\Letter}{    paperwidth=21.59cm,paperheight=27.94cm,margin=25mm,twoside}                              % 8.5x11"
+\newcommand{\LargeTrade}{paperwidth=20.32cm,paperheight=25.40cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 8x10"
+\newcommand{\Textbook}{  paperwidth=17.78cm,paperheight=25.40cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 7x10"
+\newcommand{\Trade}{     paperwidth=15.24cm,paperheight=22.86cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 6x9"
+\newcommand{\Digest}{    paperwidth=13.97cm,paperheight=21.59cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5.50x8.5"
+\newcommand{\SmallTrade}{paperwidth=13.34cm,paperheight=20.32cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5.25x8"
+\newcommand{\Novella}{   paperwidth=12.70cm,paperheight=20.32cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5x8"
+\newcommand{\UKBFormat}{ paperwidth=12.90cm,paperheight=19.80cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside}
+\newcommand{\UKAFormat}{ paperwidth=11.10cm,paperheight=17.80cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside}
 $endif$
-
+% \newcommand{\AFourSize}{ paperwidth=210mm, paperheight=297mm,margin=2cm,twoside}
+% \newcommand{\Letter}{    paperwidth=8.50in,paperheight=11in, margin=1.0in,twoside}
+% \newcommand{\LargeTrade}{paperwidth=8.00in,paperheight=10in, left=0.875in,outer=0.825in,top=0.825in,bottom=0.825in,twoside}
+% \newcommand{\USTextbook}{paperwidth=7.00in,paperheight=10in, left=0.875in,outer=0.825in,top=0.825in,bottom=0.825in,twoside}
+% \newcommand{\Trade}{     paperwidth=6.00in,paperheight=9in,  left=0.875in,right=0.625in,top=0.525in,bottom=0.625in,twoside}
+% \newcommand{\Digest}{    paperwidth=5.50in,paperheight=8.5in,left=0.875in,right=0.625in,top=0.825in,bottom=0.625in,twoside}
+% \newcommand{\SmallTrade}{paperwidth=5.25in,paperheight=8in,  left=0.875in,right=0.625in,top=0.825in,bottom=0.625in,twoside}
+% \newcommand{\Novella}{   paperwidth=5.00in,paperheight=8in,  left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
+% \newcommand{\MassMarket}{paperwidth=4.25in,paperheight=7in,  left=0.775in,right=0.525in,top=0.825in,bottom=0.625in,twoside}
+% \newcommand{\UKAFormat}{ paperwidth=111mm, paperheight=178mm,left=2cm,right=15mm,top=2cm,bottom=16mm,twoside}
+% \newcommand{\UKBFormat}{ paperwidth=129mm, paperheight=198mm,left=2cm,right=15mm,top=2cm,bottom=16mm,twoside}
 $if(trimsize)$
 \usepackage[\$trimsize$]{geometry}
 $else$
-\usepackage[\USTrade]{geometry}
+\usepackage[\Trade]{geometry}
 $endif$
 $if(beamer)$
 \newif\ifbibliography
