@@ -65,15 +65,15 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 
 | Trimsize | Paper Size | Margins |
 | --- | --- | --- |
-| AFourSize|paperwidth=210mm|paperheight=297mm|margin=2cm|
-| Letter|paperwidth=8.5in|paperheight=11in|margin=1.0in|
-| USTrade|paperwidth=6in|paperheight=9in|left=0.875in|right=0.625in|top=0.525in|bottom=0.525in|
-| Digest|paperwidth=5.5in|paperheight=8.5in|left=0.875in|right=0.625in|top=0.825in|bottom=0.825in|
-| USSmallTrade|paperwidth=5.25in|paperheight=8in|left=0.875in|right=0.625in|top=0.825in|bottom=0.82|5in
-| Novella|paperwidth=5in|paperheight=8in|left=0.775in|right=0.525in|top=0.825in|bottom=0.725in|
-| MassMarket|paperwidth=4.25in|paperheight=7in|left=0.775in|right=0.525in|top=0.825in|bottom=0.825in|
-| UKAFormat|paperwidth=111mm|paperheight=178mm|left=0.775in|right=0.525in top=0.825in bottom=0.825in|
-| UKBFormat paperwidth=129mm paperheight=198mm left=0.775in right=0.525in top=0.825in bottom=0.825in
+| AFourSize|210mm by 297mm|margin=2cm|
+| Letter|8.5in by 11in|margin=1.0in|
+| USTrade|6in by 9in|left=0.875in|right=0.625in|top=0.525in|bottom=0.525in|
+| Digest|5.5in by 8.5in|left=0.875in|right=0.625in|top=0.825in|bottom=0.825in|
+| USSmallTrade|5.25in by 8in|left=0.875in|right=0.625in|top=0.825in|bottom=0.82|5in
+| Novella|5in by 8in|left=0.775in|right=0.525in|top=0.825in|bottom=0.725in|
+| MassMarket|4.25in by 7in|left=0.775in|right=0.525in|top=0.825in|bottom=0.825in|
+| UKAFormat|111mm by 178mm|left=0.775in|right=0.525in top=0.825in bottom=0.825in|
+| UKBFormat | 129mm by 198mm | left=0.775in right=0.525in top=0.825in bottom=0.825in
 
 ### Example - Frontmatter in Markdown
 
