@@ -12,7 +12,7 @@ This is a private script using Pandoc to use GitHub / Markdown to make books.
 
 <!-- Platforms -->
 <a href="#">
-  <img src="https://img.shields.io/badge/platform-macOSx-green.svg?style=flat-square"
+  <img src="https://img.shields.io/badge/platform-macOSx-orange.svg"
     alt="Works on" />
 </a>
 
