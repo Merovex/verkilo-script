@@ -82,19 +82,22 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 |        ---       |       ---       |      ---      |     ---     |
 | **AFourSize**    |   21cm x 30cm   |          2cm  |        2cm  |
 | **Letter**       | 8-1/2" x 11"    |            1" |         1"  |
+| **LargeTrade**   |     8" x 10"    |   7/8" x 5/8" |        5/8" |
 | **USTextbook**   |     7" x 10"    |   7/8" x 5/8" |        5/8" |
 | **USTrade**      |     6" x 9"     |   7/8" x 5/8" |        5/8" |
 | **Digest**       | 5-1/2" x 8-1/2" |   7/8" x 5/8" |        7/8" |
-| **USSmallTrade** | 5-1/4" x 8"     |   7/8" x 5/8" |        7/8" |
-| **Novella**      |     5" x 8"     |   3/4" x 5/8" | 7/8" x 6/8" |
-| **MassMarket**   | 4-1/4" x 7"     |   3/4" x 5/8" |        7/8" |
+| **SmallTrade**   | 5-1/4" x 8"     |   7/8" x 5/8" |        7/8" |
+| **Novella**      |     5" x 8"     |   3/4" x 5/8" | 7/8" x 5/8" |
+| **MassMarket**   | 4-1/4" x 7"     |   3/4" x 5/8" | 7/8" x 5/8" |
 | **UKAFormat**    |   11cm x 18cm   |   20mm x 16mm |        22mm |
 | **UKBFormat**    |   13cm x 20cm   |   20mm x 16mm |        22mm |
 
 * I/O Margins - This is the inner & outer margin. The inner margin adds the gutter necessary for the binding.
 * T/B Margins - This is the top & bottom margin. The top margin includes the header.
 
-**Warning:** Failure to use one of the listed trimsizes will cause the compilation to fail.
+If you want bleeding, then set the metadata `bleed` to `true`. This will increase the page size by  1/8" or 3mm to meet the Kindle Direct bleed.
+
+**Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `USTrade`.
 
 ## FAQ
 
