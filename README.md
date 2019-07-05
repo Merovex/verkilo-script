@@ -53,7 +53,7 @@ Novel writing should focus on the content, and let the formatting take care of i
 1. If you are writing multiple books (i.e., a series) that will share configurations, you put those into a `metadata.yml` file in the root directory.
 2. For metadata related to a specific book in that series, you can put those as Frontmatter in any of the Markdown files, or as a dedicated Markdown file.
 
-### Example
+### Example - Frontmatter in Markdown
 
 ```
 ---
