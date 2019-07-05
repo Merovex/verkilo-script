@@ -68,25 +68,27 @@ To create a fancy page break, use the [Horizontal Rule](https://www.markdownguid
 
 Pandoc uses the `metadata.yml` as a default configuration that Frontmatter yaml in the `*.md` files overrides. So, if there are broad configurations that should apply everywhere with a few exceptions, then a mix of the `metadata.yml` and Frontmatter should suffice.
 
-Examples of both the metadata.yml and Frontmatter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master).
-
 **Warning:** the last Frontmatter metadata setting wins, so if you are using them in multiple files, you will experience odd side effects.
+
+### Configuration Examples
+
+Examples of both the metadata.yml and Frontmatter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master).
 
 ### Trimsize
 
 The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits.
 
-|   Trimsize       |  Paper Size    |  I/O Margins  | T/B Margins |
-|        ---       |      ---       |      ---      |     ---     |
-| **AFourSize**    |   21cm x 30cm  |          2cm  |        2cm  |
-| **Letter**       | 8-1/2" x 11"   |          1.0" |       1.0"  |
-| **USTrade**      |     6" x 9"    |   7/8" x 5/8" | 5/8" x 5/8" |
-| **Digest**       | 5-1/2" x 8.5"  |   7/8" x 5/8" | 7/8" x 7/8" |
-| **USSmallTrade** | 5-1/4" x 8"    |   7/8" x 5/8" | 7/8" x 7/8" |
-| **Novella**      |     5" x 8"    |   3/4" x 5/8" | 7/8" x 6/8" |
-| **MassMarket**   | 4-1/4" x 7"    |   3/4" x 5/8" | 7/8" x 7/8" |
-| **UKAFormat**    |   11cm x 18cm  |   20mm x 16mm | 22mm x 22mm |
-| **UKBFormat**    |   13cm x 20cm  |   20mm x 16mm | 22mm x 22mm |
+|   Trimsize       |   Paper Size    |  I/O Margins  | T/B Margins |
+|        ---       |       ---       |      ---      |     ---     |
+| **AFourSize**    |   21cm x 30cm   |          2cm  |        2cm  |
+| **Letter**       | 8-1/2" x 11"    |          1.0" |       1.0"  |
+| **USTrade**      |     6" x 9"     |   7/8" x 5/8" |        5/8" |
+| **Digest**       | 5-1/2" x 8-1/2" |   7/8" x 5/8" |        7/8" |
+| **USSmallTrade** | 5-1/4" x 8"     |   7/8" x 5/8" |        7/8" |
+| **Novella**      |     5" x 8"     |   3/4" x 5/8" | 7/8" x 6/8" |
+| **MassMarket**   | 4-1/4" x 7"     |   3/4" x 5/8" |        7/8" |
+| **UKAFormat**    |   11cm x 18cm   |   20mm x 16mm |        22mm |
+| **UKBFormat**    |   13cm x 20cm   |   20mm x 16mm |        22mm |
 
 * I/O Margins - This is the inner & outer margin. The inner margin adds the gutter necessary for the binding.
 * T/B Margins - This is the top & bottom margin. The top margin includes the header.
