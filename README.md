@@ -2,7 +2,7 @@
 
 This is a private script using Pandoc to use GitHub / Markdown to make books.
 
-**Verkilo** is a brief Ruby script that wraps around Pandoc that converts Markdown files into books.
+**Verkilo** is a brief Ruby script that wraps around Pandoc that converts Markdown files into books. Use with **[Verkilo-Master](https://github.com/Merovex/verkilo-master)** as a template to create your own book.
 
 <!-- Stability -->
 <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
