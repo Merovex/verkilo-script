@@ -1,8 +1,8 @@
 # ![Markdown Here logo...borrowed for the time being](markdown-here-logo.png) Verkilo (CLI)
 
-**Verkilo** is a Ruby command line script wrapped around Pandoc that compiles [Markdown](https://www.markdownguide.org/) files in a nested directory into a finished product. Use with **[Verkilo-Master](https://github.com/Merovex/verkilo-master)** as a template to create your own book.
+**Verkilo** is a Ruby command line script wrapped around Pandoc that compiles [Markdown](https://www.markdownguide.org/) files in a nested directory into a finished product. Use with the **[Verkilo template repository](https://github.com/Merovex/verkilo-master)** to create your own book.
 
-Verkilo has not been tested on Windows or Linux, though it is more likely to work on Linux since Mac OSX and Linux are both BSD deriviatives.
+Verkilo has not been tested on Windows or Linux, though it is more likely to work on Linux since Mac OSX and Linux are both BSD derivatives. (If you find success or problems using other formats, please create an issue.)
 
 <!-- Stability -->
 <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
@@ -22,11 +22,12 @@ Novel writing should focus on the content, and let the formatting take care of i
 
 ## Features
 
-* Consolidates a (nested) Directory of Markdown files (*.md) into a single document in the following formats:
+* **Compilation.** Consolidates a (nested) Directory of Markdown files (`*.md`) into a single document in the following formats:
   - PDF - Creates a PDF leveraging LaTeX book format (not memoir).
   - ePUB - Creates an ePUB which can then be converted into MOBI for Kindle.
   - HTML - Creates a single-page HTML document for easy browser reading.
   - DOCX - Creates a Microsoft Word Document that most editors prefer.
+* **Word count.** Provides a word count of the complete document. This should be helpful when putting together price estimates for editors, determining book length, or tracking writing progress.
 
 ## Installation
 
@@ -54,7 +55,7 @@ The formatted documents will be dropped into the `build/` directory.
 
 ### Fancy Page Breaks
 
-One feature of the LaTeX Memoir package is Fancy Page Break. In print, the fancy page break appears as vertical white space (three blank lines typically) between two sections, or a symbol denoting the break when it appears at the bottom of a page. While Verkilo does not use Memoir class, we did borrow the Fancy Page Break. This means your PDF will benefit from these expected behaviors.
+One feature of the LaTeX Memoir package is Fancy Page Break. In print, the fancy page break appears as vertical white space (three blank lines typically) between two sections, or a symbol denoting the break when it appears at the bottom of a page. While Verkilo does not use Memoir class, we did borrow the Fancy Page Break. Your PDF will benefit from these expected behaviors. Other formats will show a horizontal rule.
 
 To create a fancy page break, use the [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) markup.
 
@@ -90,58 +91,11 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 
 **Warning:** Failure to use one of the listed trimsizes will cause the compilation to fail.
 
-### Example - Frontmatter in Markdown
+### Examples
 
-```
----
-title: "Stranded Series Bible"
-# subtitle: "The worldbuilding for the Stranded Series"
-author: "Ben Wilson"
-website: "https://merovex.com"
-imprint: "images/logo.png"
-toc: true
-toc-depth: 2
-# Other titles
-other-titles:
-  - Bellicose
-  - Scintilla
+Examples of both the metadata.yml and Frontmatter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master).
 
-# Copyright Information
-publisher: Merovex Press
-rights: Copyright © 2019 Ben Wilson
-disclaimer: >
-  This is a work of fiction. Names, characters, places and incidents are either
-  the product of the author's imagination or are used fictitiously, and any resemblance to
-  actual persons, living or dead, business establishments, events or locales is entirely
-  coincidental.
-
-reservation: >
-  No part of this publication may be reproduced, stored in a retrieval system, posted on the
-  Internet, or transmitted, in any form or by any means, electronic, mechanical, photocopying,
-  recording, or otherwise, without prior written permission from the author. The only exception is
-  by a reviewer, who may quote short excerpts in a review.
-
-# lccn:  # http://www.loc.gov/publish/pcn/
-
-isbn: # Paperback
-  - "9-78098-3952-107 paperback"
-  - "9-78098-3952-107 ebook"
-
-identifier: # Ebook
-  -scheme: ISBN-13
-  -text:   isbn13:9-78098-3952-107
-
-# Production Recognition
-credits:
-  - "Cover Design: Donna Murillo"
-  - "Developmental Editor: Cara Lockwood"
-  - "Copy Editor: Cynthia Shepp"
-
-country: Printed in the United States of America
----
-```
-
-### FAQ
+## FAQ
 
 #### Q: What does "fatal: No names found, cannot describe anything" mean?
 
