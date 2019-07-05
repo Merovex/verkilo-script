@@ -1,8 +1,8 @@
-# ![Markdown Here logo](markdown-here-logo.png) Verkilo (CLI)
+# ![Markdown Here logo...borrowed for the time being](markdown-here-logo.png) Verkilo (CLI)
 
-**Verkilo** is a Ruby command line script wrapped around Pandoc that compiles [Markdown](https://www.markdownguide.org/) files in a nested directory into a finished product.
+**Verkilo** is a Ruby command line script wrapped around Pandoc that compiles [Markdown](https://www.markdownguide.org/) files in a nested directory into a finished product. Use with **[Verkilo-Master](https://github.com/Merovex/verkilo-master)** as a template to create your own book.
 
-**Verkilo** is a brief Ruby script that wraps around Pandoc that converts Markdown files into books. Use with **[Verkilo-Master](https://github.com/Merovex/verkilo-master)** as a template to create your own book.
+Verkilo has not been tested on Windows or Linux, though it is more likely to work on Linux since Mac OSX and Linux are both BSD deriviatives.
 
 <!-- Stability -->
 <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
