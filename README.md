@@ -61,7 +61,7 @@ The formatted documents will be dropped into the `build/` directory.
 
 ### Trimsize
 
-The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size. The ePUB and HTML lack trim sizes.
+The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes.
 
 |   Trimsize       |  Paper Size   |  I/O Margins  | T/B Margins |
 |        ---       |      ---      |      ---      |     ---     |
