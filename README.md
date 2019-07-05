@@ -61,15 +61,17 @@ The formatted documents will be dropped into the `build/` directory.
 
 ### Trimsize
 
-* AFourSize paperwidth=210mm paperheight=297mm margin=2cm
-* Letter paperwidth=8.5in paperheight=11in margin=1.0in
-* USTrade paperwidth=6in paperheight=9in left=0.875in right=0.625in top=0.525in bottom=0.525in
-* Digest paperwidth=5.5in paperheight=8.5in left=0.875in right=0.625in top=0.825in bottom=0.825in
-* USSmallTrade paperwidth=5.25in paperheight=8in left=0.875in right=0.625in top=0.825in bottom=0.825in
-* Novella paperwidth=5in paperheight=8in left=0.775in right=0.525in top=0.825in bottom=0.725in
-* MassMarket paperwidth=4.25in paperheight=7in left=0.775in right=0.525in top=0.825in bottom=0.825in
-* UKAFormat paperwidth=111mm paperheight=178mm left=0.775in right=0.525in top=0.825in bottom=0.825in
-* UKBFormat paperwidth=129mm paperheight=198mm left=0.775in right=0.525in top=0.825in bottom=0.825in
+The PDF option includes multiple trim sizes, depending on your target form factor.
+
+| AFourSize|paperwidth=210mm|paperheight=297mm|margin=2cm|
+| Letter|paperwidth=8.5in|paperheight=11in|margin=1.0in|
+| USTrade|paperwidth=6in|paperheight=9in|left=0.875in|right=0.625in|top=0.525in|bottom=0.525in|
+| Digest|paperwidth=5.5in|paperheight=8.5in|left=0.875in|right=0.625in|top=0.825in|bottom=0.825in|
+| USSmallTrade|paperwidth=5.25in|paperheight=8in|left=0.875in|right=0.625in|top=0.825in|bottom=0.82|5in
+| Novella|paperwidth=5in|paperheight=8in|left=0.775in|right=0.525in|top=0.825in|bottom=0.725in|
+| MassMarket|paperwidth=4.25in|paperheight=7in|left=0.775in|right=0.525in|top=0.825in|bottom=0.825in|
+| UKAFormat|paperwidth=111mm|paperheight=178mm|left=0.775in|right=0.525in top=0.825in bottom=0.825in|
+| UKBFormat paperwidth=129mm paperheight=198mm left=0.775in right=0.525in top=0.825in bottom=0.825in
 
 ### Example - Frontmatter in Markdown
 
