@@ -16,6 +16,10 @@ This is a private script using Pandoc to use GitHub / Markdown to make books.
     alt="Works on" />
 </a>
 
+## Philosophy
+
+Novel writing should focus on the content, and let the formatting take care of itself. I believe in leveraging open-source to the extent practical. Since large-form fiction writing is straight text, Markdown is ideal. This may not be as well suited for non-fiction that relies heavily on tables. Provided the images are the right size (300 DPI), they should work fine.
+
 ## Features
 
 * Consolidates a (nested) Directory of Markdown files (*.md) into a single document in the following formats:
@@ -38,13 +42,13 @@ To install **Verkilo**:
 * All code written in Ruby
 * Requires [Pandoc](https://pandoc.org/).
 
-## Example
+## Usage
 
-To use Verkilo: `verkilo pdf great-national-novel`  creates a PDF.
-
-## Philosophy
-
-Novel writing should focus on the content, and let the formatting take care of itself. I believe in leveraging open-source to the extent practical. Since large-form fiction writing is straight text, Markdown is ideal. This may not be as well suited for non-fiction that relies heavily on tables. Provided the images are the right size (300 DPI), they should work fine.
+To use Verkilo:
+* `verkilo pdf great-national-novel`  creates a PDF against the great-national-novel directory.
+* `verkilo epub great-national-novel`  creates an ePUB against the great-national-novel directory.
+* `verkilo html great-national-novel`  creates an HTML page against the great-national-novel directory.
+* `verkilo docx great-national-novel`  creates a Word doc against the great-national-novel directory.
 
 ## Configuration
 
