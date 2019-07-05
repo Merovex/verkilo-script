@@ -50,12 +50,26 @@ To use Verkilo:
 * `verkilo html great-national-novel`  creates an HTML page against the great-national-novel directory.
 * `verkilo docx great-national-novel`  creates a Word doc against the great-national-novel directory.
 
+The formatted documents will be dropped into the `build/` directory.
+
 ## Configuration
 
 **Verkilo** allows for some configuration using [YAML](https://yaml.org/). This is accomplished in one of two ways:
 
 1. If you are writing multiple books (i.e., a series) that will share configurations, you put those into a `metadata.yml` file in the root directory.
 2. For metadata related to a specific book in that series, you can put those as Frontmatter in any of the Markdown files, or as a dedicated Markdown file.
+
+### Trimsize
+
+* AFourSize paperwidth=210mm paperheight=297mm margin=2cm
+* Letter paperwidth=8.5in paperheight=11in margin=1.0in
+* USTrade paperwidth=6in paperheight=9in left=0.875in right=0.625in top=0.525in bottom=0.525in
+* Digest paperwidth=5.5in paperheight=8.5in left=0.875in right=0.625in top=0.825in bottom=0.825in
+* USSmallTrade paperwidth=5.25in paperheight=8in left=0.875in right=0.625in top=0.825in bottom=0.825in
+* Novella paperwidth=5in paperheight=8in left=0.775in right=0.525in top=0.825in bottom=0.725in
+* MassMarket paperwidth=4.25in paperheight=7in left=0.775in right=0.525in top=0.825in bottom=0.825in
+* UKAFormat paperwidth=111mm paperheight=178mm left=0.775in right=0.525in top=0.825in bottom=0.825in
+* UKBFormat paperwidth=129mm paperheight=198mm left=0.775in right=0.525in top=0.825in bottom=0.825in
 
 ### Example - Frontmatter in Markdown
 
