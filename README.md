@@ -31,7 +31,7 @@ To install **Verkilo**:
 1. Create directory `~/.verkilorc`
 2. Move `templates` directory into `~/.verkilorc` (`~/.verkilorc/templates`)
 3. Install Pandoc (see dependencies)
-4. Copy verkilo to a bin directory of your choosing in your `$PATH`. (I use `~/bin`, but could be `/usr/local/bin`)
+4. Copy verkilo to a bin directory of your choosing in your `$PATH`. (I use `~/bin`, but could be `/usr/local/bin`) and ensure it has execute permissions (`chmod +x verkilo`)
 
 ### Dependencies
 
@@ -40,5 +40,10 @@ To install **Verkilo**:
 
 ## Example
 
+To use Verkilo: `verkilo pdf great-national-novel`  creates a PDF.
 
 ## Philosophy
+
+Novel writing should focus on the content, and let the formatting take care of itself. I believe in leveraging open-source to the extent practical. Since large-form fiction writing is straight text, Markdown is ideal. This may not be as well suited for non-fiction that relies heavily on tables. Provided the images are the right size (300 DPI), they should work fine.
+
+## Configuration
