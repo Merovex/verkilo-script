@@ -1,6 +1,8 @@
 # Verkilo (CLI)
 
-This is a Ruby command line script wrapped around Pandoc to make a book out of a (nested) [Markdown](https://www.markdownguide.org/) directory.
+![Markdown Here logo](markdown-here-logo.png)
+
+**Verkilo** is a Ruby command line script wrapped around Pandoc that compiles [Markdown](https://www.markdownguide.org/) files in a nested directory into a finished product.
 
 **Verkilo** is a brief Ruby script that wraps around Pandoc that converts Markdown files into books. Use with **[Verkilo-Master](https://github.com/Merovex/verkilo-master)** as a template to create your own book.
 
@@ -87,6 +89,8 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 
 * I/O Margins - This is the inner & outer margin. The inner margin adds the gutter necessary for the binding.
 * T/B Margins - This is the top & bottom margin. The top margin includes the header.
+
+**Warning:** Failure to use one of the listed trimsizes will cause the compilation to fail.
 
 ### Example - Frontmatter in Markdown
 
