@@ -14,8 +14,8 @@ def makeProductionFile(action, target)
   puts `#{cmd}`
 end
 
-action          = ARGV.shift
-target          = ARGV.shift
+action          = ARGV.shift.gsub('/','')
+target          = ARGV.shift.gsub('/','')
 
 images_dir      = "./#{target}/images/"
 templates_dir   = "#{Dir.home}/.verkilorc/templates/"
