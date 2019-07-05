@@ -2,7 +2,7 @@
 
 **Verkilo** is a Ruby command line script wrapped around Pandoc that compiles [Markdown](https://www.markdownguide.org/) files in a nested directory into a finished product. Use with the **[Verkilo template repository](https://github.com/Merovex/verkilo-master)** to create your own book.
 
-Verkilo has not been tested on Windows or Linux, though it is more likely to work on Linux since Mac OSX and Linux are both BSD derivatives. (If you find success or problems using other formats, please create an issue.)
+**Note:** Verkilo has not been tested on Windows or Linux, though it is more likely to work on Linux since Mac OSX and Linux are both BSD derivatives. (If you find success or problems using other formats, please create an issue.)
 
 <!-- Stability -->
 <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
@@ -68,6 +68,8 @@ To create a fancy page break, use the [Horizontal Rule](https://www.markdownguid
 
 Pandoc uses the `metadata.yml` as a default configuration that Frontmatter yaml in the `*.md` files overrides. So, if there are broad configurations that should apply everywhere with a few exceptions, then a mix of the `metadata.yml` and Frontmatter should suffice.
 
+Examples of both the metadata.yml and Frontmatter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master).
+
 **Warning:** the last Frontmatter metadata setting wins, so if you are using them in multiple files, you will experience odd side effects.
 
 ### Trimsize
@@ -90,10 +92,6 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 * T/B Margins - This is the top & bottom margin. The top margin includes the header.
 
 **Warning:** Failure to use one of the listed trimsizes will cause the compilation to fail.
-
-### Examples
-
-Examples of both the metadata.yml and Frontmatter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master).
 
 ## FAQ
 
