@@ -82,6 +82,7 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 |        ---       |       ---       |      ---      |     ---     |
 | **AFourSize**    |   21cm x 30cm   |          2cm  |        2cm  |
 | **Letter**       | 8-1/2" x 11"    |            1" |         1"  |
+| **USTextbook**   |     7" x 10"    |   7/8" x 5/8" |        5/8" |
 | **USTrade**      |     6" x 9"     |   7/8" x 5/8" |        5/8" |
 | **Digest**       | 5-1/2" x 8-1/2" |   7/8" x 5/8" |        7/8" |
 | **USSmallTrade** | 5-1/4" x 8"     |   7/8" x 5/8" |        7/8" |
