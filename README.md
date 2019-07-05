@@ -24,7 +24,16 @@ This is a private script using Pandoc to use GitHub / Markdown to make books.
   - HTML - Creates a single-page HTML document for easy browser reading.
   - DOCX - Creates a Microsoft Word Document that most editors prefer.
 
-## Dependencies
+## Installation
+
+To install **Verkilo**:
+
+1. Create directory `~/.verkilorc`
+2. Move `templates` directory into `~/.verkilorc` (`~/.verkilorc/templates`)
+3. Install Pandoc (see dependencies)
+4. Copy verkilo to a bin directory of your choosing in your `$PATH`. (I use ~/bin, but could be /usr/local/bin)
+
+### Dependencies
 
 * All code written in Ruby
 * Requires [Pandoc](https://pandoc.org/).
