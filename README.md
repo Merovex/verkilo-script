@@ -63,17 +63,17 @@ The formatted documents will be dropped into the `build/` directory.
 
 The PDF option includes multiple trim sizes, depending on your target form factor.
 
-| Trimsize | Paper Size | Margins |
-| --- | --- | --- |
-| AFourSize|210mm by 297mm|margin=2cm|
-| Letter|8.5" x 11 "| margin=1.0 "| 
-| USTrade|6" x 9 "| left=0.875 "| right=0.625 "| top=0.525 "| bottom=0.525 "| 
-| Digest|5.5" x 8.5 "| left=0.875 "| right=0.625 "| top=0.825 "| bottom=0.825 "| 
-| USSmallTrade|5.25" x 8 "| left=0.875 "| right=0.625 "| top=0.825 "| bottom=0.82|5in
-| Novella|5" x 8 "| left=0.775 "| right=0.525 "| top=0.825 "| bottom=0.725 "| 
-| MassMarket|4.25" x 7 "| left=0.775 "| right=0.525 "| top=0.825 "| bottom=0.825 "| 
-| UKAFormat|111mm by 178mm|left=0.775 "| right=0.525in top=0.825in bottom=0.825 "| 
-| UKBFormat | 129mm by 198mm | left=0.775in right=0.525in top=0.825in bottom=0.825in
+| Trimsize | Paper Size | L/R Margins | T/B Margins |
+| --- | --- | --- | --- |
+| AFourSize   |210mm x 297mm  | 2cm           | 2cm |
+| Letter      |  8.5" x 11"   | 1.0"          | 1.0" |
+| USTrade     |    6" x 9"    |   7/8" x 5/8" | 5/8" x 5/8"|
+| Digest      |  5.5" x 8.5"  |   7/8" x 5/8" | 7/8" x 7/8"|
+| USSmallTrade| 5.25" x 8"    |   7/8" x 5/8" | 7/8" x 7/8"|
+| Novella     |    5" x 8"    |   3/4" x 5/8" | 7/8" x 6/8"|
+| MassMarket  | 4.25" x 7"    |   3/4" x 5/8" | 7/8" x 7/8"|
+| UKAFormat   | 111mm x 178mm |   20mm x 16mm | 22mm x 22mm|
+| UKBFormat   | 129mm x 198mm |   20mm x 16mm | 22mm x 22mm|
 
 ### Example - Frontmatter in Markdown
 
