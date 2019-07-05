@@ -31,7 +31,7 @@ To install **Verkilo**:
 1. Create directory `~/.verkilorc`
 2. Move `templates` directory into `~/.verkilorc` (`~/.verkilorc/templates`)
 3. Install Pandoc (see dependencies)
-4. Copy verkilo to a bin directory of your choosing in your `$PATH`. (I use ~/bin, but could be /usr/local/bin)
+4. Copy verkilo to a bin directory of your choosing in your `$PATH`. (I use `~/bin`, but could be `/usr/local/bin`)
 
 ### Dependencies
 
