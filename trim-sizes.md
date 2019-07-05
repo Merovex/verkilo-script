@@ -20,14 +20,6 @@ Standard book sizes can vary depending on your genre. Let’s first define some 
 
 **Hardcover**: You’ll probably be familiar with these premium formats. These book sizes tend to range from 6” x 9” to 8.5” x 11”.
 
-Here’s a real-world comparison of some trade paperback sizes:
-
-[](/images/trim-sizes-1.png)
-
-From left: 5” x 8” , 5.5” x 8.5” (digest) and 6” x 9” (trade)
-
-And now that you’ve got a frame of reference, it’s time to go broad! Let’s break down book sizes by genre.
-
 ## What are the standard book sizes in publishing?
 
 For your reference, the standard book sizes are:
@@ -44,4 +36,4 @@ For your reference, the standard book sizes are:
 
 Here is a visual comparison of these sizes below:
 
-[](https://www.notion.so/8ede97342fd54b7fa32b2ca5b1f966d6#8fece98b1da64dd099bf18e19bea9e9d)
+![](/images/trim-sizes-1.png)
