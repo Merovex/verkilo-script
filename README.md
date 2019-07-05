@@ -63,6 +63,8 @@ The formatted documents will be dropped into the `build/` directory.
 
 The PDF option includes multiple trim sizes, depending on your target form factor.
 
+| Trimsize | Paper Size | Margins |
+| --- | --- | --- |
 | AFourSize|paperwidth=210mm|paperheight=297mm|margin=2cm|
 | Letter|paperwidth=8.5in|paperheight=11in|margin=1.0in|
 | USTrade|paperwidth=6in|paperheight=9in|left=0.875in|right=0.625in|top=0.525in|bottom=0.525in|
