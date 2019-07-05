@@ -1,4 +1,4 @@
-#!/Users/merovex/.rvm/rubies/ruby-2.4.1/bin/ruby
+#!/usr/bin/env ruby
 
 require 'fileutils'
 
@@ -65,8 +65,8 @@ HEREDOC
 @build_flags[:docx] = <<-HEREDOC
   --reference-doc=#{templates_dir}reference.docx
 HEREDOC
-
-if %w(pdf docx epub html).include?(action)
+actions = %w(pdf docx epub html)
+if actions.include?(action)
   makeProductionFile(action, target)
   makeSticky(target)
 elsif (action == 'book')
@@ -75,4 +75,6 @@ elsif (action == 'book')
   makeSticky(target)
 elsif (action == 'clean')
   FileUtils.remove_dir(build_dir)
+else
+  puts "verkilo {#{actions}} {target}"
 end
