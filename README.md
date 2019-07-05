@@ -66,13 +66,13 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 | Trimsize | Paper Size | Margins |
 | --- | --- | --- |
 | AFourSize|210mm by 297mm|margin=2cm|
-| Letter|8.5in by 11in|margin=1.0in|
-| USTrade|6in by 9in|left=0.875in|right=0.625in|top=0.525in|bottom=0.525in|
-| Digest|5.5in by 8.5in|left=0.875in|right=0.625in|top=0.825in|bottom=0.825in|
-| USSmallTrade|5.25in by 8in|left=0.875in|right=0.625in|top=0.825in|bottom=0.82|5in
-| Novella|5in by 8in|left=0.775in|right=0.525in|top=0.825in|bottom=0.725in|
-| MassMarket|4.25in by 7in|left=0.775in|right=0.525in|top=0.825in|bottom=0.825in|
-| UKAFormat|111mm by 178mm|left=0.775in|right=0.525in top=0.825in bottom=0.825in|
+| Letter|8.5" x 11 "| margin=1.0 "| 
+| USTrade|6" x 9 "| left=0.875 "| right=0.625 "| top=0.525 "| bottom=0.525 "| 
+| Digest|5.5" x 8.5 "| left=0.875 "| right=0.625 "| top=0.825 "| bottom=0.825 "| 
+| USSmallTrade|5.25" x 8 "| left=0.875 "| right=0.625 "| top=0.825 "| bottom=0.82|5in
+| Novella|5" x 8 "| left=0.775 "| right=0.525 "| top=0.825 "| bottom=0.725 "| 
+| MassMarket|4.25" x 7 "| left=0.775 "| right=0.525 "| top=0.825 "| bottom=0.825 "| 
+| UKAFormat|111mm by 178mm|left=0.775 "| right=0.525in top=0.825in bottom=0.825 "| 
 | UKBFormat | 129mm by 198mm | left=0.775in right=0.525in top=0.825in bottom=0.825in
 
 ### Example - Frontmatter in Markdown
