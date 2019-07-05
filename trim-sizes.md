@@ -1,6 +1,6 @@
 # Trimsize
 
-[Originally published](https://blog.reedsy.com/standard-book-sizes/)
+[Originally published by Reedsy.](https://blog.reedsy.com/standard-book-sizes/) To help explain trimsize to you in the event they change their content.
 
 ## What is trim size?
 
