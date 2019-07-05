@@ -1,6 +1,4 @@
-# Verkilo (CLI)
-
-![Markdown Here logo](markdown-here-logo.png)
+# ![Markdown Here logo](markdown-here-logo.png) Verkilo (CLI)
 
 **Verkilo** is a Ruby command line script wrapped around Pandoc that compiles [Markdown](https://www.markdownguide.org/) files in a nested directory into a finished product.
 
