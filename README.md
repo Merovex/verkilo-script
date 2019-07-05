@@ -128,3 +128,13 @@ credits:
 country: Printed in the United States of America
 ---
 ```
+
+### FAQ
+
+#### Q: What does "fatal: No names found, cannot describe anything" mean?
+
+Verkilo attempts to use the repository's git tag in the output filename. When that tag is missing, the git command throws the "fatal: No names found, cannot describe anything" error. This does not affect the final output.
+
+## License
+
+This script is licensed under an [MIT license](LICENSE).
