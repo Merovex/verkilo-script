@@ -79,7 +79,10 @@ disclaimer: >
   coincidental.
 
 reservation: >
-  No part of this publication may be reproduced, stored in a retrieval system, posted on the Internet, or transmitted, in any form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission from the author. The only exception is by a reviewer, who may quote short excerpts in a review.
+  No part of this publication may be reproduced, stored in a retrieval system, posted on the
+  Internet, or transmitted, in any form or by any means, electronic, mechanical, photocopying,
+  recording, or otherwise, without prior written permission from the author. The only exception is
+  by a reviewer, who may quote short excerpts in a review.
 
 # lccn:  # http://www.loc.gov/publish/pcn/
 
