@@ -61,19 +61,22 @@ The formatted documents will be dropped into the `build/` directory.
 
 ### Trimsize
 
-The PDF option includes multiple trim sizes, depending on your target form factor.
+The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size. The ePUB and HTML lack trim sizes.
 
-| Trimsize     |  Paper Size   |  I/O Margins  | T/B Margins |
-|      ---     |      ---      |      ---      |     ---     |
-| AFourSize    |210mm x 297mm  | 2cm           |        2cm  |
-| Letter       |  8.5" x 11"   | 1.0"          |       1.0"  |
-| USTrade      |    6" x 9"    |   7/8" x 5/8" | 5/8" x 5/8" |
-| Digest       |  5.5" x 8.5"  |   7/8" x 5/8" | 7/8" x 7/8" |
-| USSmallTrade | 5.25" x 8"    |   7/8" x 5/8" | 7/8" x 7/8" |
-| Novella      |    5" x 8"    |   3/4" x 5/8" | 7/8" x 6/8" |
-| MassMarket   | 4.25" x 7"    |   3/4" x 5/8" | 7/8" x 7/8" |
-| UKAFormat    | 111mm x 178mm |   20mm x 16mm | 22mm x 22mm |
-| UKBFormat    | 129mm x 198mm |   20mm x 16mm | 22mm x 22mm |
+|   Trimsize       |  Paper Size   |  I/O Margins  | T/B Margins |
+|        ---       |      ---      |      ---      |     ---     |
+| **AFourSize**    | 210mm x 297mm |          2cm  |        2cm  |
+| **Letter**       |  8.5" x 11"   |          1.0" |       1.0"  |
+| **USTrade**      |    6" x 9"    |   7/8" x 5/8" | 5/8" x 5/8" |
+| **Digest**       |  5.5" x 8.5"  |   7/8" x 5/8" | 7/8" x 7/8" |
+| **USSmallTrade** | 5.25" x 8"    |   7/8" x 5/8" | 7/8" x 7/8" |
+| **Novella**      |    5" x 8"    |   3/4" x 5/8" | 7/8" x 6/8" |
+| **MassMarket**   | 4.25" x 7"    |   3/4" x 5/8" | 7/8" x 7/8" |
+| **UKAFormat**    | 111mm x 178mm |   20mm x 16mm | 22mm x 22mm |
+| **UKBFormat**    | 129mm x 198mm |   20mm x 16mm | 22mm x 22mm |
+
+* I/O Margins - This is the inner & outer margin. The inner margin adds the gutter necessary for the binding.
+* T/B Margins - This is the top & bottom margin. The top margin includes the header.
 
 ### Example - Frontmatter in Markdown
 
