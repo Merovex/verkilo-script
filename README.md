@@ -78,7 +78,7 @@ Examples of both the metadata.yml and front matter metadata are available in the
 
 ### Fonts
 
-Verkilo configures three fonts by default, but you may reconfigure them provided they are available when using the LaTeX font packages listed here.
+Verkilo configures three default fonts, but you may reconfigure them provided they are available when using the LaTeX font packages listed here. See [Pandoc fonts for LaTeX](https://pandoc.org/MANUAL.html#fonts) for more information.
 
 ```
 \usepackage{fontspec}
@@ -88,9 +88,14 @@ Verkilo configures three fonts by default, but you may reconfigure them provided
 
 | Family | Default | Configuration |
 | :-: |  :-: | :-: |
-| Serif   | Libre Caslon Text   | seriffont |
-| Sans-Serif   | Lato  |  sansfont |
-| Monospace   | Courier | monofont  |
+| Serif   | Libre Baskerville   | seriffont |
+| Sans-Serif   | Libre Franklin  |  sansfont |
+| Monospace   | Inconsolata | monofont  |
+
+**Why default Baskerville, Franklin & Inconsolata?** Both Libre Baskerville and Libre Franklin have been optimized for use on screen. Baskerville is nice and readable, so ideal for use as body text, while Franklin is better suited to headlines. Inconsolata pairs with Baskerville & Franklin as they all share similar traits (double-story g & a, etc.).
+
+* [Compare Franklin & Baskerville](http://www.identifont.com/differences?first=Libre+Franklin&second=Libre+Baskerville&q=Go)
+* [Compare Inconsolata & Baskerville](http://www.identifont.com/differences?first=Inconsolata&second=Libre+Baskerville&q=Go)
 
 ### Trimsize
 
@@ -124,6 +129,14 @@ Line hight is determined by trim size so that a 10pt font size will yield 35-40 
 #### Q: What does "fatal: No names found, cannot describe anything" mean?
 
 Verkilo attempts to use the repository's git tag in the output filename. When that tag is missing, the git command throws the "fatal: No names found, cannot describe anything" error. This does not affect the final output.
+
+#### Q: What does 'fontspec error: "font-not-found"' mean?
+
+This error means you do not have the font listed installed. If you are using the out-of-the-box fonts, you can install them from Google:
+
+* [Libre Baskerville](https://fonts.google.com/specimen/Libre+Baskerville)
+* [Libre Franklin](https://fonts.google.com/specimen/Libre+Franklin)
+* [Inconsolata](https://fonts.google.com/specimen/Inconsolata)
 
 ## License
 
