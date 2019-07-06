@@ -42,6 +42,7 @@ To install **Verkilo**:
 
 * All code written in Ruby
 * Requires [Pandoc](https://pandoc.org/).
+* Requires certain Google Fonts (see Fonts below).
 
 ## Usage
 
@@ -57,20 +58,20 @@ The formatted documents will be dropped into the `build/` directory.
 
 One feature of the LaTeX Memoir package is Plain / Fancy Break. In print, the plain/fancy break appears as vertical white space (three blank lines typically) between two sections, or a symbol denoting the break when it appears at the bottom of a page. While Verkilo does not use Memoir class, we did borrow the Fancy Page Break. Your PDF will benefit from these expected behaviors. Other formats will show a horizontal rule.
 
-To create a plain/fancy break, use the [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) markup. Here is [an example of both plain & fancy breaks](./images/pfbreak.png).
+To create a plain/fancy break, use the [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) markup. Here is [an example of both plain & fancy breaks](./images/pfbreak.png) (the border denotes page edges ala the `crop: true` attribute).
 
 ## Configuration
 
 **Verkilo** uses Pandoc allows for some configuration using [YAML](https://yaml.org/). This is accomplished in one of two ways:
 
-1. If you are writing multiple books (i.e., a series) that will share configurations, you put those into a `metadata.yml` file in the root directory.
-2. For metadata related to a specific book in that series, you can put those as YAML Front Matter in any of the Markdown files, or as a dedicated Markdown file.
+1. If you are writing multiple books (i.e., a series) that will share attributes, you put those into a `metadata.yml` file in the root directory to those books.
+2. For attributes related to a specific book in that series, you can put those as YAML Front Matter in any of the Markdown files, or as a dedicated Markdown file.
 
 Pandoc uses the `metadata.yml` as a default configuration that YAML Front Matter in the `*.md` files overrides. So, if there are broad configurations that should apply everywhere with a few exceptions, then a mix of the `metadata.yml` and YAML Front Matter should suffice. See [Pandoc's Documentation on LaTeX variables for more information](https://pandoc.org/MANUAL.html#variables-for-latex).
 
 **Warning:** the last YAML Front Matter metadata setting wins, so if you are using them in multiple files, you will experience odd side effects.
 
-**Note.** Settings relating to Geometry, margins, and linestretch are governed by trim size in Verkilo.
+**Note.** Settings relating to geometry, margins, and line stretch are governed by trim size in Verkilo.
 
 ### Configuration Examples
 
