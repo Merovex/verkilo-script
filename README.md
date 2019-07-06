@@ -61,18 +61,36 @@ To create a fancy page break, use the [Horizontal Rule](https://www.markdownguid
 
 ## Configuration
 
-**Verkilo** allows for some configuration using [YAML](https://yaml.org/). This is accomplished in one of two ways:
+**Verkilo** uses Pandoc allows for some configuration using [YAML](https://yaml.org/). This is accomplished in one of two ways:
 
 1. If you are writing multiple books (i.e., a series) that will share configurations, you put those into a `metadata.yml` file in the root directory.
 2. For metadata related to a specific book in that series, you can put those as YAML Front Matter in any of the Markdown files, or as a dedicated Markdown file.
 
-Pandoc uses the `metadata.yml` as a default configuration that YAML Front Matter in the `*.md` files overrides. So, if there are broad configurations that should apply everywhere with a few exceptions, then a mix of the `metadata.yml` and YAML Front Matter should suffice.
+Pandoc uses the `metadata.yml` as a default configuration that YAML Front Matter in the `*.md` files overrides. So, if there are broad configurations that should apply everywhere with a few exceptions, then a mix of the `metadata.yml` and YAML Front Matter should suffice. See [Pandoc's Documentation on LaTeX variables for more information](https://pandoc.org/MANUAL.html#variables-for-latex).
 
 **Warning:** the last YAML Front Matter metadata setting wins, so if you are using them in multiple files, you will experience odd side effects.
+
+**Note.** Settings relating to Geometry, margins, and linestretch are governed by trim size in Verkilo.
 
 ### Configuration Examples
 
 Examples of both the metadata.yml and front matter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master). YAML Front Matter in this context is a block of YAML code at the top of the document. [Jekyll's documentation on YAML Front Matter](https://jekyllrb.com/docs/front-matter/) describes it better than I could.
+
+### Fonts
+
+Verkilo configures three fonts by default, but you may reconfigure them provided they are available when using the LaTeX font packages listed here.
+
+```
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+```
+
+| Family | Default | Configuration |
+| :-: |  :-: | :-: |
+| Serif   | Libre Caslon Text   | seriffont |
+| Sans-Serif   | Lato  |  sansfont |
+| Monospace   | Courier | monofont  |
 
 ### Trimsize
 
