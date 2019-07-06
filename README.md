@@ -78,26 +78,28 @@ Examples of both the metadata.yml and Frontmatter metadata are available in the 
 
 The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits in the table. All measures are in metric in the LaTeX macros.
 
-|   Trimsize       |   Paper Size    |  I/O Margins  | Bottom      |
-|        ---       |       ---       |      ---      |     ---     |
-| **Letter**       | 8-1/2" x 11"    |            1" |          1" |
-| **LargeTrade**   |     8" x 10"    |   7/8" x 5/8" |        5/8" |
-| **Textbook**     |     7" x 10"    |   7/8" x 5/8" |        5/8" |
-| **Trade**        |     6" x 9"     |   7/8" x 5/8" |        5/8" |
-| **Digest**       | 5-1/2" x 8-1/2" |   7/8" x 5/8" |        7/8" |
-| **SmallTrade**   | 5-1/4" x 8"     |   7/8" x 5/8" |        7/8" |
-| **Novella**      |     5" x 8"     |   3/4" x 5/8" | 7/8" x 5/8" |
-| **AFourSize**    |   21cm x 30cm   |          2cm  |        2cm  |
-| **UKAFormat**    |   11cm x 18cm   |   20mm x 16mm |        22mm |
-| **UKBFormat**    |   13cm x 20cm   |   20mm x 16mm |        22mm |
+|   Trimsize       |   Paper Size    |
+|        ---       |       ---       |
+| **Letter**       | 8-1/2" x 11"    |
+| **LargeTrade**   |     8" x 10"    |
+| **Textbook**     |     7" x 10"    |
+| **Trade**        |     6" x 9"     |
+| **Digest**       | 5-1/2" x 8-1/2" |
+| **SmallTrade**   | 5-1/4" x 8"     |
+| **Novella**      |     5" x 8"     |
+| **AFourSize**    |   21cm x 30cm   |
+| **UKAFormat**    |   11cm x 18cm   |
+| **UKBFormat**    |   13cm x 20cm   |
 
-* Top and Inner margins are 20mm.
-* Outer and bottom margins are identical.
-* T/B Margins - This is the top & bottom margin. The top margin includes the header.
+* Top and Inner margins are 2cm.
+* Outer and bottom margins are 17mm.
+* When configuratoin `bleed` is `true`, then the paper size and margins are increased by 3mm wide and 6mm high.
 
-If you want bleeding, then set the metadata `bleed` to `true`. This will increase the page size by  1/8" or 3mm to meet the Kindle Direct bleed.
+**Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `Trade`.
 
-**Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `USTrade`.
+### Line Height
+
+Line hight is determined by trim size so that a 10pt font size will yield 35-40 lines per page when compiling to PDF. The odd result is the page count for various sizes should be within ten percent of one another.
 
 ## FAQ
 
