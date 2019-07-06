@@ -79,7 +79,7 @@ Examples of both the metadata.yml and Frontmatter metadata are available in the 
 The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits in the table. All measures are in metric in the LaTeX macros.
 
 |   Trimsize       |   Paper Size    |
-|        ---       |       ---       |
+|        ---       |:       ---     :|
 | **Letter**       | 8-1/2" x 11"    |
 | **LargeTrade**   |     8" x 10"    |
 | **Textbook**     |     7" x 10"    |
