@@ -87,11 +87,11 @@ Verkilo configures three default fonts, but you may reconfigure them provided th
 \usepackage{xltxtra}
 ```
 
-| Family | Default | Configuration |
-| :-: |  :-: | :-: |
-| Serif   | Libre Baskerville   | seriffont |
-| Sans-Serif   | Libre Franklin  |  sansfont |
-| Monospace   | Inconsolata | monofont  |
+| Family | Default | Attribute |
+| :-: |  :-: | :- |
+| Serif   | Libre Baskerville   | seriffont: Libre Baskerville |
+| Sans-Serif   | Libre Franklin  |  sansfont: Libre Franklin |
+| Monospace   | Inconsolata | monofont: Inconsolata  |
 
 **Why default Baskerville, Franklin & Inconsolata?** Both Libre Baskerville and Libre Franklin have been optimized for use on screen. Baskerville is nice and readable, so ideal for use as body text, while Franklin is better suited to headlines. Inconsolata pairs with Baskerville & Franklin as they all share similar traits (double-story g & a, etc.). See the [Libre Baskerville / Franklin / Inconsolata pairing image](./images/libre-franklin-baskerville-inconsolata.png).
 
