@@ -55,9 +55,9 @@ The formatted documents will be dropped into the `build/` directory.
 
 ### Fancy Page Breaks
 
-One feature of the LaTeX Memoir package is Fancy Page Break. In print, the fancy page break appears as vertical white space (three blank lines typically) between two sections, or a symbol denoting the break when it appears at the bottom of a page. While Verkilo does not use Memoir class, we did borrow the Fancy Page Break. Your PDF will benefit from these expected behaviors. Other formats will show a horizontal rule.
+One feature of the LaTeX Memoir package is Plain / Fancy Break. In print, the plain/fancy break appears as vertical white space (three blank lines typically) between two sections, or a symbol denoting the break when it appears at the bottom of a page. While Verkilo does not use Memoir class, we did borrow the Fancy Page Break. Your PDF will benefit from these expected behaviors. Other formats will show a horizontal rule.
 
-To create a fancy page break, use the [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) markup.
+To create a plain/fancy break, use the [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) markup. Here is [an example of both plain & fancy breaks](./images/pfbreak.png).
 
 ## Configuration
 
@@ -111,8 +111,8 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 | **UKAFormat**    |   11cm x 18cm   |
 | **UKBFormat**    |   13cm x 20cm   |
 
-* Top and Inner margins are 2cm.
-* Outer and bottom margins are 17mm.
+* Top and Inner margins are 2cm (~3/4").
+* Outer and bottom margins are 17mm (~5/8").
 * When configuration `bleed` is `true`, then the paper size and margins are increased by 3mm wide and 6mm high.
 
 **Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `Trade`.

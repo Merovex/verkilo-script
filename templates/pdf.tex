@@ -101,8 +101,8 @@ $if(seriffont)$
 $else$
   \setmonofont{Inconsolata}
 $endif$
-
-
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
 
 % Dates
 %-------
@@ -237,8 +237,8 @@ $if(bleed)$
 \newcommand{\Textbook}{  paperwidth=7.125in,paperheight=10.25in,outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
 \newcommand{\Trade}{     paperwidth=6.125in,paperheight=9.25in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
 \newcommand{\Digest}{    paperwidth=5.625in,paperheight=8.75in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
-\newcommand{\SmallTrade}{paperwidth=5.375in,paperheight=8.25in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
-\newcommand{\Novella}{   paperwidth=5.125in,paperheight=8.25in, outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\SmallTrade}{paperwidth=5.375in,paperheight=8.25in, outer=16mm,bottom=20mm,top=23mm,inner=2cm,twoside}
+\newcommand{\Novella}{   paperwidth=5.125in,paperheight=8.25in, outer=16mm,bottom=20mm,top=23mm,inner=2cm,twoside}
 \newcommand{\UKAFormat}{ paperwidth=114mm, paperheight=184mm,   outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
 \newcommand{\UKBFormat}{ paperwidth=132mm, paperheight=204mm,   outer=20mm,bottom=20mm,top=23mm,inner=2cm,twoside}
 $else$
@@ -248,8 +248,8 @@ $else$
 \newcommand{\Textbook}{  paperwidth=17.78cm,paperheight=25.40cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 7x10"
 \newcommand{\Trade}{     paperwidth=15.24cm,paperheight=22.86cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 6x9"
 \newcommand{\Digest}{    paperwidth=13.97cm,paperheight=21.59cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5.50x8.5"
-\newcommand{\SmallTrade}{paperwidth=13.34cm,paperheight=20.32cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5.25x8"
-\newcommand{\Novella}{   paperwidth=12.70cm,paperheight=20.32cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5x8"
+\newcommand{\SmallTrade}{paperwidth=13.34cm,paperheight=20.32cm,outer=13mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5.25x8"
+\newcommand{\Novella}{   paperwidth=12.70cm,paperheight=20.32cm,outer=13mm,bottom=17mm,top=2cm,inner=2cm,twoside} % 5x8"
 \newcommand{\UKBFormat}{ paperwidth=12.90cm,paperheight=19.80cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside}
 \newcommand{\UKAFormat}{ paperwidth=11.10cm,paperheight=17.80cm,outer=17mm,bottom=17mm,top=2cm,inner=2cm,twoside}
 $endif$
@@ -263,6 +263,7 @@ $endif$
 \newcommand{\NovellaLinespace}{   1.1}
 \newcommand{\UKBFormatLinespace}{ 1.1}
 \newcommand{\UKAFormatLinespace}{ 1.1}
+
 
 % \newcommand{\AFourSize}{ paperwidth=210mm, paperheight=297mm,margin=2cm,twoside}
 % \newcommand{\Letter}{    paperwidth=8.50in,paperheight=11in, margin=1.0in,twoside}
@@ -280,6 +281,10 @@ $if(trimsize)$
 $else$
 \usepackage[\Trade]{geometry}
 $endif$
+$if(crop)$
+\usepackage[letter,frame,center]{crop}
+$endif$
+
 \usepackage{setspace}
 $if(linestretch)$
 \setstretch{$linestretch$}
