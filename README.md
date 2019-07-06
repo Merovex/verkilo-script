@@ -64,19 +64,19 @@ To create a fancy page break, use the [Horizontal Rule](https://www.markdownguid
 **Verkilo** allows for some configuration using [YAML](https://yaml.org/). This is accomplished in one of two ways:
 
 1. If you are writing multiple books (i.e., a series) that will share configurations, you put those into a `metadata.yml` file in the root directory.
-2. For metadata related to a specific book in that series, you can put those as Frontmatter in any of the Markdown files, or as a dedicated Markdown file.
+2. For metadata related to a specific book in that series, you can put those as YAML Front Matter in any of the Markdown files, or as a dedicated Markdown file.
 
-Pandoc uses the `metadata.yml` as a default configuration that Frontmatter yaml in the `*.md` files overrides. So, if there are broad configurations that should apply everywhere with a few exceptions, then a mix of the `metadata.yml` and Frontmatter should suffice.
+Pandoc uses the `metadata.yml` as a default configuration that YAML Front Matter in the `*.md` files overrides. So, if there are broad configurations that should apply everywhere with a few exceptions, then a mix of the `metadata.yml` and YAML Front Matter should suffice.
 
-**Warning:** the last Frontmatter metadata setting wins, so if you are using them in multiple files, you will experience odd side effects.
+**Warning:** the last YAML Front Matter metadata setting wins, so if you are using them in multiple files, you will experience odd side effects.
 
 ### Configuration Examples
 
-Examples of both the metadata.yml and Frontmatter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master).
+Examples of both the metadata.yml and front matter metadata are available in the [Verkilo template repository](https://github.com/Merovex/verkilo-master). YAML Front Matter in this context is a block of YAML code at the top of the document. [Jekyll's documentation on YAML Front Matter](https://jekyllrb.com/docs/front-matter/) describes it better than I could.
 
 ### Trimsize
 
-The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits in the table. All measures are in metric in the LaTeX macros.
+The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits in the table. All measures are in metric in the LaTeX macros. When calculating trim size, we compared [commonly used sizes](./trim-sizes.md) and those offered by [KDP](https://kdp.amazon.com/en_US/help/topic/G201834180#trim).
 
 |   Trimsize       |   Paper Size    |
 |        ---       |       :---:     |
@@ -93,7 +93,7 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 
 * Top and Inner margins are 2cm.
 * Outer and bottom margins are 17mm.
-* When configuratoin `bleed` is `true`, then the paper size and margins are increased by 3mm wide and 6mm high.
+* When configuration `bleed` is `true`, then the paper size and margins are increased by 3mm wide and 6mm high.
 
 **Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `Trade`.
 
