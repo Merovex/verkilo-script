@@ -140,7 +140,7 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 * Top and Inner margins are 2cm (~3/4").
 * Outer and bottom margins are 17mm (~5/8").
 * When attribute `bleed: true` is set, then the paper size and margins are increased by 3mm wide and 6mm high. (I don't think we can bleed an image, though.)
-* Set `crop: true` attribute to see what a given size looks like scaled properly on a letter-sized printout.
+* Set attribute `crop: true` to see what a given size looks like scaled properly on a letter-sized printout.
 
 **Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `trimsize: Trade`.
 
