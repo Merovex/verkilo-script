@@ -25,6 +25,7 @@ Table of Contents
 <!--ts-->
    * [<a href="images/markdown-here-logo.png" target="_blank" rel="noopener noreferrer"><img src="images/markdown-here-logo.png" alt="Markdown Here logo...borrowed for the time being" style="max-width:100\x;"></a> Verkilo (CLI)](#-verkilo-cli)
       * [Philosophy](#philosophy)
+   * [Table of Contents](#table-of-contents)
       * [Features](#features)
       * [Installation](#installation)
          * [Dependencies](#dependencies)
@@ -36,8 +37,8 @@ Table of Contents
          * [Trimsize](#trimsize)
          * [Line Height](#line-height)
       * [FAQ](#faq)
-            * [Q: What does "fatal: No names found, cannot describe anything" mean?](#q-what-does-fatal-no-names-found-cannot-describe-anything-mean)
-            * [Q: What does 'fontspec error: "font-not-found"' mean?](#q-what-does-fontspec-error-font-not-found-mean)
+         * [Q: What does "fatal: No names found, cannot describe anything" mean?](#q-what-does-fatal-no-names-found-cannot-describe-anything-mean)
+         * [Q: What does 'fontspec error: "font-not-found"' mean?](#q-what-does-fontspec-error-font-not-found-mean)
       * [License](#license)
 
 <!-- Added by: merovex, at:  -->
@@ -148,11 +149,11 @@ Line hight is determined by trim size so that a 10pt font size will yield 35-40 
 
 ## FAQ
 
-#### Q: What does "fatal: No names found, cannot describe anything" mean?
+### Q: What does "fatal: No names found, cannot describe anything" mean?
 
 Verkilo attempts to use the repository's git tag in the output filename. When that tag is missing, the git command throws the `fatal: No names found, cannot describe anything` error. This does not affect the final output.
 
-#### Q: What does 'fontspec error: "font-not-found"' mean?
+### Q: What does 'fontspec error: "font-not-found"' mean?
 
 The `fontspec error: "font-not-found"` error means you do not have the font listed with the error installed. If you are using the out-of-the-box fonts, you can install them from Google:
 
