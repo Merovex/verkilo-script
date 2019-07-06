@@ -15,7 +15,7 @@ def makeProductionFile(action, target)
 end
 
 action          = ARGV.shift.gsub('/','')
-target          = ARGV.shift.gsub('/','')
+target          = ARGV.shift.gsub('/','') unless ARGV.empty?
 
 images_dir      = "./#{target}/images/"
 templates_dir   = "#{Dir.home}/.verkilorc/templates/"
@@ -33,7 +33,7 @@ HEREDOC
 
 @build_flags[:epub] = <<-HEREDOC
   --css=#{templates_dir}style.css \
-  --epub-cover-image=#{images_dir}cover.png \
+  --epub-cover-image=#{images_dir}epub-cover.png \
   --template=#{templates_dir}epub.html \
   --webtex
 HEREDOC
@@ -59,7 +59,10 @@ HEREDOC
 # Actions are the various output formats that we create.
 actions = %w(pdf docx epub html)
 
-if actions.include?(action)
+if action == 'clean'
+  puts "Removing Build files."
+  FileUtils.rm_rf Dir.glob("build/*") if Dir.exist?('build')
+elsif actions.include?(action)
   makeProductionFile(action, target)
 elsif (action == 'book')
   makeProductionFile('epub', target)
