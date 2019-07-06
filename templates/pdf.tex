@@ -1,12 +1,14 @@
 \PassOptionsToPackage{unicode=true$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 $if(colorlinks)$
-\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+% \PassOptionsToPackage{dvipsnames,svgnames*,x11names*,natural}{xcolor}
 $endif$$if(dir)$$if(latex-dir-rtl)$
 \PassOptionsToPackage{RTLdocument}{bidi}
 $endif$$endif$%
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$if(beamer)$ignorenonframetext,$if(handout)$handout,$endif$$if(aspectratio)$aspectratio=$aspectratio$,$endif$$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+% \usepackage[dvipsnames,svgnames*,x11names*]{xcolor}
+\usepackage[svgnames]{xcolor}
 \usepackage{titlesec}
 \usepackage{graphicx}
 % \usepackage{lipsum}
@@ -202,7 +204,7 @@ $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
 $if(colorlinks)$
-\usepackage{xcolor}
+% \usepackage{xcolor}
 $endif$
 \usepackage{hyperref}
 \hypersetup{
@@ -394,8 +396,10 @@ $endif$
 \fancyhead[CE]{ \footnotesize\MakeUppercase{$author$} } % Even Page, Right side
 \renewcommand\headrulewidth{0pt} % for no rule line under header
 
+
+
 \titleformat{\chapter}[display]
-  {\normalfont\sffamily\huge\bfseries\color{Gray}}
+  {\normalfont\sffamily\huge\bfseries\color{$if(chapter-color)$$chapter-color$$else$Black$endif$}}
   {\chaptertitlename\ \thechapter}{20pt}{\Huge}
 % \titleformat{\chapter}[display]
 %   {\bfseries\Large}
