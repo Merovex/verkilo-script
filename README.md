@@ -20,6 +20,30 @@
 
 Novel writing should focus on the content, and let the formatting take care of itself. I believe in leveraging open-source to the extent practical. Since large-form fiction writing is straight text, Markdown is ideal. This may not be as well suited for non-fiction that relies heavily on tables or code examples. Provided the images are the right size (300 DPI), they should work fine.
 
+Table of Contents
+=================
+<!--ts-->
+   * [<a href="images/markdown-here-logo.png" target="_blank" rel="noopener noreferrer"><img src="images/markdown-here-logo.png" alt="Markdown Here logo...borrowed for the time being" style="max-width:100\x;"></a> Verkilo (CLI)](#-verkilo-cli)
+      * [Philosophy](#philosophy)
+      * [Features](#features)
+      * [Installation](#installation)
+         * [Dependencies](#dependencies)
+      * [Usage](#usage)
+         * [Fancy Page Breaks](#fancy-page-breaks)
+      * [Configuration](#configuration)
+         * [Configuration Examples](#configuration-examples)
+         * [Fonts](#fonts)
+         * [Trimsize](#trimsize)
+         * [Line Height](#line-height)
+      * [FAQ](#faq)
+            * [Q: What does "fatal: No names found, cannot describe anything" mean?](#q-what-does-fatal-no-names-found-cannot-describe-anything-mean)
+            * [Q: What does 'fontspec error: "font-not-found"' mean?](#q-what-does-fontspec-error-font-not-found-mean)
+      * [License](#license)
+
+<!-- Added by: merovex, at:  -->
+
+<!--te-->
+
 ## Features
 
 * **Compilation.** Consolidates a (nested) Directory of Markdown files (`*.md`) into a single document in the following formats:
@@ -126,7 +150,7 @@ Line hight is determined by trim size so that a 10pt font size will yield 35-40 
 
 #### Q: What does "fatal: No names found, cannot describe anything" mean?
 
-Verkilo attempts to use the repository's git tag in the output filename. When that tag is missing, the git command throws the "`fatal: No names found, cannot describe anything`" error. This does not affect the final output.
+Verkilo attempts to use the repository's git tag in the output filename. When that tag is missing, the git command throws the `fatal: No names found, cannot describe anything` error. This does not affect the final output.
 
 #### Q: What does 'fontspec error: "font-not-found"' mean?
 
