@@ -89,15 +89,15 @@ Verkilo configures three default fonts, but you may reconfigure them provided th
 
 | Family | Default | Attribute |
 | :-: |  :-: | :- |
-| Serif   | Libre Baskerville   | seriffont: Libre Baskerville |
-| Sans-Serif   | Libre Franklin  |  sansfont: Libre Franklin |
-| Monospace   | Inconsolata | monofont: Inconsolata  |
+| Serif       | Libre Baskerville | seriffont: Libre Baskerville |
+| Sans-Serif  | Libre Franklin    | sansfont: Libre Franklin |
+| Monospace   | Inconsolata       | monofont: Inconsolata  |
 
 **Why default Baskerville, Franklin & Inconsolata?** Both Libre Baskerville and Libre Franklin have been optimized for use on screen. Baskerville is nice and readable, so ideal for use as body text, while Franklin is better suited to headlines. Inconsolata pairs with Baskerville & Franklin as they all share similar traits (double-story g & a, etc.). See the [Libre Baskerville / Franklin / Inconsolata pairing image](./images/libre-franklin-baskerville-inconsolata.png).
 
 ### Trimsize
 
-The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits in the table. All measures are in metric in the LaTeX macros. When calculating trim size, we compared [commonly used sizes](./trim-sizes.md) and those offered by [KDP](https://kdp.amazon.com/en_US/help/topic/G201834180#trim).
+The PDF option includes multiple trim sizes, depending on your target form factor. The Word document has a fixed trim size (Letter). The ePUB and HTML lack trim sizes. Metric measures rounded to 2 digits in the table. All measures are in metric in the LaTeX macros. (The US uses its Customary measures, which are defined by the Metric equivalent.) When calculating trim size, we compared [commonly used sizes](./trim-sizes.md) and those offered by [KDP](https://kdp.amazon.com/en_US/help/topic/G201834180#trim).
 
 |   Trimsize       |   Paper Size    |
 |        ---       |       :---:     |
@@ -114,23 +114,23 @@ The PDF option includes multiple trim sizes, depending on your target form facto
 
 * Top and Inner margins are 2cm (~3/4").
 * Outer and bottom margins are 17mm (~5/8").
-* When configuration `bleed` is `true`, then the paper size and margins are increased by 3mm wide and 6mm high.
+* When attribute `bleed: true` is set, then the paper size and margins are increased by 3mm wide and 6mm high. (I don't think we can bleed an image, though.)
 
-**Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `Trade`.
+**Warning:** Failure to use one of the listed trim sizes will cause the compilation to fail. Defaults to `trimsize: Trade`.
 
 ### Line Height
 
-Line hight is determined by trim size so that a 10pt font size will yield 35-40 lines per page when compiling to PDF. The odd result is the page count for various sizes should be within ten percent of one another.
+Line hight is determined by trim size so that a 10pt font size will yield 35-40 lines per page when compiling to PDF.
 
 ## FAQ
 
 #### Q: What does "fatal: No names found, cannot describe anything" mean?
 
-Verkilo attempts to use the repository's git tag in the output filename. When that tag is missing, the git command throws the "fatal: No names found, cannot describe anything" error. This does not affect the final output.
+Verkilo attempts to use the repository's git tag in the output filename. When that tag is missing, the git command throws the "`fatal: No names found, cannot describe anything`" error. This does not affect the final output.
 
 #### Q: What does 'fontspec error: "font-not-found"' mean?
 
-This error means you do not have the font listed installed. If you are using the out-of-the-box fonts, you can install them from Google:
+The `fontspec error: "font-not-found"` error means you do not have the font listed with the error installed. If you are using the out-of-the-box fonts, you can install them from Google:
 
 * [Libre Baskerville](https://fonts.google.com/specimen/Libre+Baskerville)
 * [Libre Franklin](https://fonts.google.com/specimen/Libre+Franklin)
