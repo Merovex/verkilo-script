@@ -1,9 +1,14 @@
 #!/usr/bin/env ruby
 
 require 'fileutils'
-
+def epub_image(images_dir, action)
+  fname = "#{images_dir}epub-cover.png"
+  raise "Epub Cover Missing (#{fname})" if (action == 'epub' and !File.exist?(fname))
+end
 def makeProductionFile(action, target)
-  basename        = "#{File.basename(Dir.pwd)}-#{target}"
+  # book_filename   =
+  book_basename   = File.basename(target)
+  basename        = "#{File.basename(Dir.pwd)}-#{book_basename}"
   build_dir       = (action == "html") ? "build/html/" : "build/"
   chapters        = Dir["./#{target}/**/*.md"].sort.join(" ")
   output_filename = "#{build_dir}#{basename}.#{action}"
@@ -15,7 +20,8 @@ def makeProductionFile(action, target)
 end
 
 action          = ARGV.shift.gsub('/','')
-target          = ARGV.shift.gsub('/','') unless ARGV.empty?
+target          = ARGV.shift unless ARGV.empty?
+# target          = ARGV.shift.gsub('/','') unless ARGV.empty?
 
 images_dir      = "./#{target}/images/"
 templates_dir   = "#{Dir.home}/.verkilorc/templates/"
@@ -33,7 +39,7 @@ HEREDOC
 
 @build_flags[:epub] = <<-HEREDOC
   --css=#{templates_dir}style.css \
-  --epub-cover-image=#{images_dir}epub-cover.png \
+  --epub-cover-image=#{epub_image(images_dir, action)} \
   --template=#{templates_dir}epub.html \
   --webtex
 HEREDOC
