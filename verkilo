@@ -6,7 +6,6 @@ def epub_image(images_dir, action)
   raise "Epub Cover Missing (#{fname})" if (action == 'epub' and !File.exist?(fname))
 end
 def makeProductionFile(action, target)
-  # book_filename   =
   book_basename   = File.basename(target)
   basename        = "#{File.basename(Dir.pwd)}-#{book_basename}"
   build_dir       = (action == "html") ? "build/html/" : "build/"
@@ -21,7 +20,6 @@ end
 
 action          = ARGV.shift.gsub('/','')
 target          = ARGV.shift unless ARGV.empty?
-# target          = ARGV.shift.gsub('/','') unless ARGV.empty?
 
 images_dir      = "./#{target}/images/"
 templates_dir   = "#{Dir.home}/.verkilorc/templates/"

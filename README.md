@@ -76,6 +76,7 @@ To use Verkilo:
 * `verkilo epub great-national-novel`  creates an ePUB against the great-national-novel directory.
 * `verkilo html great-national-novel`  creates an HTML page against the great-national-novel directory.
 * `verkilo docx great-national-novel`  creates a Word doc against the great-national-novel directory.
+* `verkilo book great-national-novel`  creates both a PDF and ePUB against the great-national-novel directory.
 
 The formatted documents will be dropped into the `build/` directory.
 
@@ -84,6 +85,15 @@ The formatted documents will be dropped into the `build/` directory.
 One feature of the LaTeX Memoir package is Plain / Fancy Break. In print, the plain/fancy break appears as vertical white space (three blank lines typically) between two sections, or a symbol denoting the break when it appears at the bottom of a page. While Verkilo does not use Memoir class, we did borrow the Fancy Page Break. Your PDF will benefit from these expected behaviors. Other formats will show a horizontal rule.
 
 To create a plain/fancy break, use the [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) markup. Here is [an example of both plain & fancy breaks](./images/pfbreak.png) (the border denotes page edges ala the `crop: true` attribute).
+
+
+```markdown
+paragraph text here
+
+* * *
+
+paragraph text here
+```
 
 ## Configuration
 
