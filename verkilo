@@ -1,10 +1,13 @@
-#!/Users/merovex/.rvm/rubies/ruby-2.4.1/bin/ruby
+#!/usr/bin/env ruby
 
 require 'fileutils'
-
+def epub_image(images_dir, action)
+  fname = "#{images_dir}epub-cover.png"
+  raise "Epub Cover Missing (#{fname})" if (action == 'epub' and !File.exist?(fname))
+end
 def makeProductionFile(action, target)
-  target          = getSticky(target)
-  basename        = "#{File.basename(Dir.pwd)}-#{target}"
+  book_basename   = File.basename(target)
+  basename        = "#{File.basename(Dir.pwd)}-#{book_basename}"
   build_dir       = (action == "html") ? "build/html/" : "build/"
   chapters        = Dir["./#{target}/**/*.md"].sort.join(" ")
   output_filename = "#{build_dir}#{basename}.#{action}"
@@ -15,24 +18,15 @@ def makeProductionFile(action, target)
   puts `#{cmd}`
 end
 
-def getSticky(target)
-  wip_file = '.wip'
-  target   = File.open(wip_file).readlines.first if File.exist?(wip_file) and target.nil?
-  return target
-end
-
-def makeSticky(target)
-  return if target.nil?
-  File.open('.wip', 'w') {|f| f.write(target) }
-end
-
-action          = ARGV.shift
-target          = getSticky(ARGV.shift)
+action          = ARGV.shift.gsub('/','')
+target          = ARGV.shift unless ARGV.empty?
 
 images_dir      = "./#{target}/images/"
 templates_dir   = "#{Dir.home}/.verkilorc/templates/"
 version         = `git describe --abbrev=0 --tags` || 'none'
 
+# Build Flags are a series of pandoc build arguments that are tailored to
+# a specific output format. :all describes the commonly used arguments.
 @build_flags    = { }
 
 @build_flags[:all] = <<-HEREDOC
@@ -43,7 +37,7 @@ HEREDOC
 
 @build_flags[:epub] = <<-HEREDOC
   --css=#{templates_dir}style.css \
-  --epub-cover-image=#{images_dir}cover.png \
+  --epub-cover-image=#{epub_image(images_dir, action)} \
   --template=#{templates_dir}epub.html \
   --webtex
 HEREDOC
@@ -66,13 +60,20 @@ HEREDOC
   --reference-doc=#{templates_dir}reference.docx
 HEREDOC
 
-if %w(pdf docx epub html).include?(action)
+# Actions are the various output formats that we create.
+actions = %w(pdf docx epub html)
+
+if action == 'clean'
+  puts "Removing Build files."
+  FileUtils.rm_rf Dir.glob("build/*") if Dir.exist?('build')
+elsif actions.include?(action)
   makeProductionFile(action, target)
-  makeSticky(target)
 elsif (action == 'book')
   makeProductionFile('epub', target)
   makeProductionFile('pdf', target)
-  makeSticky(target)
 elsif (action == 'clean')
   FileUtils.remove_dir(build_dir)
+else
+  puts "Usage: verkilo {#{actions}} {target-directory}"
+  puts "       verkilo needs one of the listed formats as an action, and a target."
 end
