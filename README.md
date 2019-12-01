@@ -76,6 +76,7 @@ To use Verkilo:
 * `verkilo epub great-national-novel`  creates an ePUB against the great-national-novel directory.
 * `verkilo html great-national-novel`  creates an HTML page against the great-national-novel directory.
 * `verkilo docx great-national-novel`  creates a Word doc against the great-national-novel directory.
+* `verkilo book great-national-novel`  creates both a PDF and ePUB against the great-national-novel directory.
 
 The formatted documents will be dropped into the `build/` directory.
 
@@ -84,6 +85,15 @@ The formatted documents will be dropped into the `build/` directory.
 One feature of the LaTeX Memoir package is Plain / Fancy Break. In print, the plain/fancy break appears as vertical white space (three blank lines typically) between two sections, or a symbol denoting the break when it appears at the bottom of a page. While Verkilo does not use Memoir class, we did borrow the Fancy Page Break. Your PDF will benefit from these expected behaviors. Other formats will show a horizontal rule.
 
 To create a plain/fancy break, use the [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) markup. Here is [an example of both plain & fancy breaks](./images/pfbreak.png) (the border denotes page edges ala the `crop: true` attribute).
+
+
+```markdown
+paragraph text here
+
+* * *
+
+paragraph text here
+```
 
 ## Configuration
 
@@ -106,6 +116,10 @@ Examples of both the metadata.yml and front matter metadata are available in the
 
 Verkilo configures three default fonts, but you may reconfigure them provided they are available when using the LaTeX font packages listed here. See [Pandoc fonts for LaTeX](https://pandoc.org/MANUAL.html#fonts) for more information.
 
+Fonts are configured in either the `metadata.yml` or the in-document Frontmatter.
+
+The LaTeX packages used for font assignments are:
+
 ```
 \usepackage{fontspec}
 \usepackage{xunicode}
@@ -119,6 +133,14 @@ Verkilo configures three default fonts, but you may reconfigure them provided th
 | Monospace   | Inconsolata       | monofont: Inconsolata  |
 
 **Why default Baskerville, Franklin & Inconsolata?** Both Libre Baskerville and Libre Franklin have been optimized for use on screen. Baskerville is nice and readable, so ideal for use as body text, while Franklin is better suited to headlines. Inconsolata pairs with Baskerville & Franklin as they all share similar traits (double-story g & a, etc.). See the [Libre Baskerville / Franklin / Inconsolata pairing image](./images/libre-franklin-baskerville-inconsolata.png).
+
+Here is an example of customizing fonts based on the Source Pro series:
+
+```
+seriffont: "Source Serif Pro"
+sansfont: "Source Sans Pro"
+monofont: "Source Code Pro"
+```
 
 ### Trimsize
 
